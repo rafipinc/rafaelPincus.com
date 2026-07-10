@@ -1,36 +1,26 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Rafi Pincus, portfolio
 
-## Getting Started
+Single-page portfolio site for Rafael (Rafi) Pincus: Pub Thursdays, the deal-ingestion pipeline behind it, Bookkeeper, and Suncorp experience.
 
-First, run the development server:
+## Stack
+
+Next.js (App Router) + TypeScript + Tailwind CSS v4 (CSS-first config in `app/globals.css`, no tailwind config file) + a hand-installed shadcn Button. Fully static, no API routes.
+
+## Develop
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Edit content
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+All copy, stats, links, and video IDs live in `lib/content.ts`. Components only render from it.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Video IDs:** set `video.demoId` and `video.fullId` in `lib/content.ts` to the unlisted YouTube IDs. While `demoId` is null the facade shows a designed poster; the full-walkthrough link only appears when `fullId` is set.
+- **App Store link:** set `links.appStore` to the real URL. Until then the CTA renders disabled with a "Link coming soon" title.
+- **Pipeline slide:** replace `public/pipeline_slide.svg` with the real slide, keeping the same filename (1600x900).
 
-## Learn More
+## Deploy
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Deploys as-is on Vercel. Update `metadataBase` in `app/layout.tsx` once the final domain is known.

@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" role="img" aria-label="Deal ingestion pipeline architecture overview">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9" fill="none" stroke="#E4572E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <rect width="1600" height="900" fill="#FAF8F5"/>
+
+  <text x="200" y="112" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="22" letter-spacing="4" fill="#E4572E">PUB THURSDAYS · DEAL INGESTION PIPELINE</text>
+  <text x="200" y="152" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="20" letter-spacing="2" fill="#78716C">ARCHITECTURE OVERVIEW</text>
+
+  <!-- Stage 1 -->
+  <rect x="200" y="230" width="1200" height="130" rx="14" fill="#FFFFFF" stroke="#E7E0D8" stroke-width="2"/>
+  <text x="248" y="305" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="22" letter-spacing="3" fill="#E4572E">01</text>
+  <text x="340" y="305" font-family="ui-sans-serif, -apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="30" fill="#1B1815">Scheduled Edge Functions + rule-based filtering</text>
+
+  <!-- Arrow 1 -->
+  <line x1="800" y1="372" x2="800" y2="432" stroke="#E4572E" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Stage 2 -->
+  <rect x="200" y="445" width="1200" height="130" rx="14" fill="#FFFFFF" stroke="#E7E0D8" stroke-width="2"/>
+  <text x="248" y="520" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="22" letter-spacing="3" fill="#E4572E">02</text>
+  <text x="340" y="520" font-family="ui-sans-serif, -apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="30" fill="#1B1815">Gemini structured extraction, confidence scoring, dedupe</text>
+
+  <!-- Arrow 2 -->
+  <line x1="800" y1="587" x2="800" y2="647" stroke="#E4572E" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Stage 3 -->
+  <rect x="200" y="660" width="1200" height="130" rx="14" fill="#FFFFFF" stroke="#E7E0D8" stroke-width="2"/>
+  <text x="248" y="735" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="22" letter-spacing="3" fill="#E4572E">03</text>
+  <text x="340" y="735" font-family="ui-sans-serif, -apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="30" fill="#1B1815">Human review queue, approved deals to Postgres (RLS)</text>
+</svg>
