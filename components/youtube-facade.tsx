@@ -8,6 +8,9 @@ type YouTubeFacadeProps = {
   title: string;
 };
 
+const hatchClasses =
+  "bg-[repeating-linear-gradient(45deg,#F1F1EC,#F1F1EC_10px,#EAEAE4_10px,#EAEAE4_20px)]";
+
 export function YouTubeFacade({ videoId, title }: YouTubeFacadeProps) {
   const [playing, setPlaying] = useState(false);
 
@@ -16,27 +19,22 @@ export function YouTubeFacade({ videoId, title }: YouTubeFacadeProps) {
       <div
         role="img"
         aria-label={`${title}. Demo video coming soon.`}
-        className="relative aspect-video w-full overflow-hidden rounded-lg border border-border bg-linear-to-br from-[#33271e] to-[#1b1815]"
+        className={`flex aspect-4/3 w-full flex-col items-center justify-center gap-3 border border-border ${hatchClasses}`}
       >
-        <div className="flex h-full flex-col items-start justify-end gap-3 p-6 sm:p-8">
-          <span
-            aria-hidden="true"
-            className="flex h-10 w-10 items-center justify-center rounded-full bg-accent text-white"
-          >
-            <Play className="ml-0.5 h-4 w-4 fill-current" />
-          </span>
-          <p className="font-display text-lg text-[#faf8f5]">{title}</p>
-          <p className="font-mono text-xs uppercase tracking-wider text-[#a89f96]">
-            Demo video coming soon
-          </p>
-        </div>
+        <span
+          aria-hidden="true"
+          className="flex h-10 w-10 items-center justify-center rounded-full border border-border-strong bg-background text-muted"
+        >
+          <Play className="ml-0.5 h-4 w-4 fill-current" />
+        </span>
+        <p className="font-mono text-xs text-muted">90S DEMO · COMING SOON</p>
       </div>
     );
   }
 
   if (playing) {
     return (
-      <div className="aspect-video w-full overflow-hidden rounded-lg border border-border bg-[#1b1815]">
+      <div className="aspect-4/3 w-full overflow-hidden border border-border bg-ink">
         <iframe
           className="h-full w-full"
           src={`https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1`}
@@ -53,7 +51,7 @@ export function YouTubeFacade({ videoId, title }: YouTubeFacadeProps) {
       type="button"
       onClick={() => setPlaying(true)}
       aria-label={`Play video: ${title}`}
-      className="group relative block aspect-video w-full overflow-hidden rounded-lg border border-border bg-[#1b1815]"
+      className="group relative block aspect-4/3 w-full overflow-hidden border border-border bg-ink"
     >
       {/* eslint-disable-next-line @next/next/no-img-element -- YouTube-hosted thumbnail, intentionally unoptimized */}
       <img

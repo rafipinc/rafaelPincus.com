@@ -1,13 +1,16 @@
 @import "tailwindcss";
 
 :root {
-  --background: #faf8f5;
-  --foreground: #44403c;
-  --ink: #1b1815;
-  --accent: #e4572e;
-  --accent-hover: #c74722;
-  --muted: #78716c;
-  --hairline: #e7e0d8;
+  --background: #fafaf8;
+  --foreground: #4a4d46;
+  --ink: #161814;
+  --accent: #1e7a4e;
+  --accent-hover: #16603c;
+  --muted: #6b6e66;
+  --hairline: #e2e2dc;
+  --hairline-strong: #d6d6cf;
+  --surface: #f1f1ec;
+  --surface-2: #eaeae4;
 }
 
 @theme inline {
@@ -18,19 +21,21 @@
   --color-accent-hover: var(--accent-hover);
   --color-muted: var(--muted);
   --color-border: var(--hairline);
+  --color-border-strong: var(--hairline-strong);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
 
   /* shadcn-expected tokens, mapped to the same palette */
-  --color-primary: var(--accent);
-  --color-primary-foreground: #ffffff;
-  --color-secondary: #f1ebe4;
+  --color-primary: var(--ink);
+  --color-primary-foreground: var(--background);
+  --color-secondary: var(--surface);
   --color-secondary-foreground: var(--ink);
   --color-accent-foreground: #ffffff;
   --color-input: var(--hairline);
   --color-ring: var(--accent);
 
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-  --font-display: var(--font-fraunces);
+  --font-sans: var(--font-archivo);
+  --font-mono: var(--font-plex-mono);
 }
 
 html {
@@ -40,7 +45,13 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  font-family: var(--font-archivo), Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--background);
 }
 
 :focus-visible {

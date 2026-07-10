@@ -26,17 +26,31 @@ async function loadGoogleFont(
 }
 
 export default async function Image() {
-  const [fraunces, geist] = await Promise.all([
-    loadGoogleFont("Fraunces", 600, site.name),
-    loadGoogleFont("Geist", 400, site.oneLiner),
+  const [archivoMedium, archivoRegular] = await Promise.all([
+    loadGoogleFont("Archivo", 500, site.name),
+    loadGoogleFont("Archivo", 400, site.oneLiner),
   ]);
 
   const fonts = [
-    ...(fraunces
-      ? [{ name: "Fraunces", data: fraunces, weight: 600, style: "normal" } as const]
+    ...(archivoMedium
+      ? [
+          {
+            name: "Archivo",
+            data: archivoMedium,
+            weight: 500,
+            style: "normal",
+          } as const,
+        ]
       : []),
-    ...(geist
-      ? [{ name: "Geist", data: geist, weight: 400, style: "normal" } as const]
+    ...(archivoRegular
+      ? [
+          {
+            name: "Archivo",
+            data: archivoRegular,
+            weight: 400,
+            style: "normal",
+          } as const,
+        ]
       : []),
   ];
 
@@ -50,24 +64,24 @@ export default async function Image() {
           flexDirection: "column",
           justifyContent: "center",
           padding: 88,
-          backgroundColor: "#FAF8F5",
+          backgroundColor: "#FAFAF8",
         }}
       >
         <div
           style={{
             width: 96,
             height: 10,
-            backgroundColor: "#E4572E",
+            backgroundColor: "#1E7A4E",
             marginBottom: 48,
           }}
         />
         <div
           style={{
             fontSize: 96,
-            fontWeight: 600,
-            color: "#1B1815",
-            letterSpacing: "-0.02em",
-            fontFamily: fraunces ? "Fraunces" : undefined,
+            fontWeight: 500,
+            color: "#161814",
+            letterSpacing: "-0.03em",
+            fontFamily: archivoMedium ? "Archivo" : undefined,
           }}
         >
           {site.name}
@@ -78,8 +92,8 @@ export default async function Image() {
             maxWidth: 900,
             fontSize: 34,
             lineHeight: 1.4,
-            color: "#44403C",
-            fontFamily: geist ? "Geist" : undefined,
+            color: "#4A4D46",
+            fontFamily: archivoRegular ? "Archivo" : undefined,
           }}
         >
           {site.oneLiner}

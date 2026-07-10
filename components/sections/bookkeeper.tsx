@@ -1,21 +1,32 @@
+import { SectionShell } from "@/components/sections/section-shell";
 import { bookkeeper } from "@/lib/content";
 
 export function Bookkeeper() {
   return (
-    <section
-      aria-labelledby="bookkeeper-heading"
-      className="border-t border-border py-20 sm:py-24"
-    >
-      <p className="font-mono text-xs uppercase tracking-widest text-accent">
-        {bookkeeper.kicker}
-      </p>
-      <h2
-        id="bookkeeper-heading"
-        className="mt-4 font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl"
-      >
-        {bookkeeper.heading}
-      </h2>
-      <p className="mt-6 max-w-2xl leading-relaxed">{bookkeeper.body}</p>
-    </section>
+    <SectionShell kicker={bookkeeper.kicker} labelledBy="bookkeeper-heading">
+      <div className="grid items-start gap-10 md:grid-cols-2 md:gap-12">
+        <div>
+          <h2
+            id="bookkeeper-heading"
+            className="text-3xl font-medium tracking-[-0.02em] text-ink"
+          >
+            {bookkeeper.heading}
+          </h2>
+          <p className="mt-4 max-w-[55ch] text-pretty leading-relaxed">
+            {bookkeeper.body}
+          </p>
+        </div>
+        <dl className="border-t border-ink pt-5 font-mono text-xs leading-[2.1] text-muted">
+          {bookkeeper.specs.map((spec) => (
+            <div key={spec.label} className="flex justify-between gap-4">
+              <dt>{spec.label}</dt>
+              <dd className={spec.accent ? "text-accent" : "text-ink"}>
+                {spec.value}
+              </dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </SectionShell>
   );
 }

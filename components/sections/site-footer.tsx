@@ -1,32 +1,41 @@
-import { Button } from "@/components/ui/button";
-import { footer, links, site } from "@/lib/content";
+import { contact, links, site } from "@/lib/content";
 
 export function SiteFooter() {
   return (
     <footer aria-label="Availability and contact">
-      <div className="mx-auto w-full max-w-3xl px-6 pb-16 pt-20 sm:pt-24">
-        <div className="border-t border-border pt-20 sm:pt-24">
-          <p className="font-mono text-xs uppercase tracking-widest text-accent">
-            {footer.kicker}
-          </p>
-          <p className="mt-4 max-w-2xl font-display text-2xl font-medium leading-snug text-ink">
-            {footer.line}
-          </p>
-          <div className="mt-8 flex flex-wrap items-center gap-5">
-            <Button asChild size="lg" className="hover:bg-accent-hover">
-              <a href={`mailto:${links.email}`}>{footer.emailCta}</a>
-            </Button>
-            <a
-              href={links.linkedin}
-              className="text-sm text-accent underline underline-offset-4 transition-colors duration-150 hover:text-accent-hover"
-            >
-              {footer.linkedinLabel}
-            </a>
-          </div>
-          <p className="mt-16 font-mono text-xs text-muted">
-            {site.location} · © {new Date().getFullYear()} {site.name}
-          </p>
+      <section aria-labelledby="contact-heading" className="pb-28 pt-24 sm:pt-28">
+        <p
+          className="mb-7 font-mono text-xs tracking-[0.06em] text-accent"
+          id="contact-kicker"
+        >
+          {contact.kicker}
+        </p>
+        <h2
+          id="contact-heading"
+          className="max-w-[24ch] text-balance text-[clamp(2rem,4.5vw,3.5rem)] font-medium leading-[1.1] tracking-[-0.025em] text-ink"
+        >
+          {contact.heading}
+        </h2>
+        <div className="mt-11 flex flex-wrap gap-3.5 font-mono text-[13px] tracking-[0.04em]">
+          <a
+            href={`mailto:${links.email}`}
+            className="bg-ink px-7 py-3.5 text-background transition-colors duration-150 hover:bg-accent"
+          >
+            {contact.emailCta}
+          </a>
+          <a
+            href={links.linkedin}
+            className="border border-ink px-7 py-3.5 text-ink transition-colors duration-150 hover:bg-ink hover:text-background"
+          >
+            {contact.linkedinLabel}
+          </a>
         </div>
+      </section>
+      <div className="flex justify-between border-t border-ink pb-10 pt-6 font-mono text-[11px] tracking-[0.04em] text-muted">
+        <span>{site.location.toUpperCase()}</span>
+        <span>
+          © {new Date().getFullYear()} {site.name.toUpperCase()}
+        </span>
       </div>
     </footer>
   );
