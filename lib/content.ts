@@ -48,7 +48,7 @@ export const video: { demoId: string | null; fullId: string | null } = {
 export const hero = {
   kicker: "SOFTWARE ENGINEER — SYDNEY, AUSTRALIA",
   heading: "I build AI-powered products end to end.",
-  sub: "Five years shipping iOS at Suncorp. Now shipping Next.js web apps and LLM extraction pipelines with humans in the loop.",
+  sub: "Five years shipping iOS at Suncorp, one of Australia's biggest insurers. Now building web apps and AI data pipelines that keep a human in the loop.",
   pillPrimary: "5 YRS iOS AT SUNCORP",
   pillSecondary: "AI PRODUCTS · END TO END",
 } as const;
@@ -57,14 +57,14 @@ export const pubThursdays = {
   kicker: "01 / FLAGSHIP",
   heading: "Pub Thursdays",
   status: "● LIVE ON THE APP STORE · APR 2026",
-  body: "An iOS app for social groups that run a recurring pub night — rotation, ratings, leaderboards, invites, card votes, APNs reminders. Behind it, a deal-ingestion pipeline keeps a catalog of 506 Sydney venues current with no content team.",
+  body: "An iOS app for friend groups who run a weekly pub night. It handles whose turn it is to pick, voting, ratings, leaderboards and reminders — and recommends new pubs based on what the group has loved. Behind it, an automated pipeline reads 506 Sydney venue websites, uses AI to extract each pub's weekly specials, and routes anything uncertain to a human for approval. The result: a live deals catalog with no content team.",
   demoVideoTitle: "Pub Thursdays demo, 90 seconds",
   fullVideoLabel: "Watch the full 5-minute walkthrough",
   metrics: [
-    { value: "576", label: "APPROVED DEALS" },
-    { value: "122", label: "VENUES COVERED" },
-    { value: "136/136", label: "PIPELINE RUNS SUCCEEDED" },
-    { value: "0.93", label: "AVG EXTRACTION CONFIDENCE" },
+    { value: "581", label: "APPROVED DEALS" },
+    { value: "123", label: "VENUES COVERED" },
+    { value: "182/182", label: "PIPELINE RUNS SUCCEEDED" },
+    { value: "0.94", label: "AVG AI CONFIDENCE (0–1)" },
   ] satisfies Metric[],
   pipelineImage: {
     src: "/pipeline_slide.svg",
@@ -79,33 +79,35 @@ export const pubThursdays = {
 
 export const pipeline = {
   kicker: "02 / PIPELINE",
-  heading: "Deterministic first, LLM second, human last.",
+  heading: "Rules first, AI second, a human sign-off last.",
   stages: [
     {
       step: "STEP 01",
-      title: "Deterministic first",
-      body: "Scheduled Deno Edge Functions pull deal content from venue websites and PDFs across 506 Sydney venues. Rule-based pre-filtering handles cheap, predictable extraction before any LLM is invoked.",
-      stat: "506 VENUES CRAWLED",
+      title: "Start cheap and predictable",
+      body: "Scheduled jobs visit each pub's own website and menu PDFs — never third-party listings, which testing showed can sit years out of date. Simple pattern-matching trims each page down to the handful of lines that look like deals, so most of the work costs nothing to run.",
+      stat: "506 VENUES CHECKED AUTOMATICALLY",
     },
     {
       step: "STEP 02",
-      title: "LLM with guardrails",
-      body: "Gemini handles structured extraction with server-side keys and response caching to control spend. Every deal gets a confidence score and is deduplicated before anything is written.",
-      stat: "0.93 AVG CONFIDENCE",
+      title: "AI with guardrails",
+      body: "Google's Gemini model turns those snippets into structured deals — what, which day, what price — with a confidence score on every one. Duplicates are removed, one-off events are filtered out, and results are cached for 30 days so the AI is never called twice for the same venue.",
+      stat: "0.94 AVG CONFIDENCE",
     },
     {
       step: "STEP 03",
-      title: "Human in the loop",
-      body: "Low-confidence results route to a review queue; only approved deals reach the production Postgres catalog, secured with row-level security. 105 SQL migrations, 340+ automated tests.",
-      stat: "136/136 RUNS SUCCEEDED",
+      title: "A human has the final say",
+      body: "Anything the AI is less than sure about lands in a review queue inside the app, and only approved deals ever reach users. Every published deal links back to its source and shows when it was last verified — so nothing stale or invented makes it to the app.",
+      stat: "182/182 RUNS SUCCEEDED",
     },
   ] satisfies PipelineStage[],
+  footnote:
+    "UNDER THE HOOD: DENO EDGE FUNCTIONS ON SUPABASE · SSRF-SAFE FETCHING · PROMPT-INJECTION DEFENCES · PER-USER RATE LIMITS · POSTGRES ROW-LEVEL SECURITY · EVERY RUN LOGGED · 109 MIGRATIONS · 320+ AUTOMATED TESTS",
 } as const;
 
 export const bookkeeper = {
   kicker: "03 / IN DEVELOPMENT",
   heading: "Bookkeeper",
-  body: "Bookkeeping SaaS for solo operators. Multi-tenant Xero OAuth 2.0 with PKCE, encrypted token storage through Postgres RPCs, advisory-lock token refresh, Inngest background jobs. Verified end to end against the Xero API.",
+  body: "A bookkeeping tool for solo business owners that connects securely to their Xero accounts. Built with the care of a banking integration — encrypted credentials, safe token handling, background processing — and verified end to end against the real Xero API.",
   specs: [
     { label: "STACK", value: "Next.js · TypeScript · Supabase" },
     { label: "AUTH", value: "Xero OAuth 2.0 + PKCE" },
@@ -121,7 +123,7 @@ export const suncorp = {
   items: [
     {
       stat: "−25%",
-      body: "Key contributor on the iOS side of the ForgeRock auth migration. Login-related contact centre calls dropped 25% after launch.",
+      body: "Key iOS contributor on the bank-grade login migration (ForgeRock). Login-related calls to the contact centre dropped 25% after launch.",
     },
     {
       stat: "LEAD",

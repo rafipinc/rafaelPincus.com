@@ -1,33 +1,69 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" role="img" aria-label="Deal ingestion pipeline architecture overview">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" role="img" aria-label="Pub Thursdays deal-ingestion pipeline: deterministic fetching and rule filtering, Gemini structured extraction with guardrails, then a human review queue writing approved deals to Postgres with row-level security. 182 of 182 scheduled runs succeeded.">
   <defs>
-    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M 0 1 L 9 5 L 0 9" fill="none" stroke="#E4572E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9" fill="none" stroke="#C2410C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
     </marker>
   </defs>
 
-  <rect width="1600" height="900" fill="#FAF8F5"/>
+  <rect width="1600" height="900" fill="#FAFAF8"/>
 
-  <text x="200" y="112" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="22" letter-spacing="4" fill="#E4572E">PUB THURSDAYS · DEAL INGESTION PIPELINE</text>
-  <text x="200" y="152" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="20" letter-spacing="2" fill="#78716C">ARCHITECTURE OVERVIEW</text>
+  <!-- Header -->
+  <text x="80" y="84" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="19" letter-spacing="3" fill="#C2410C">PUB THURSDAYS — DEAL-INGESTION PIPELINE</text>
+  <text x="1520" y="84" text-anchor="end" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="17" letter-spacing="1.5" fill="#6B6E66">SUPABASE EDGE · DENO/TS · GEMINI 2.5 FLASH-LITE</text>
+  <text x="80" y="146" font-family="ui-sans-serif, -apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="46" font-weight="500" letter-spacing="-1" fill="#161814">Deterministic first, LLM second, human last.</text>
+  <line x1="80" y1="184" x2="1520" y2="184" stroke="#161814" stroke-width="2"/>
 
   <!-- Stage 1 -->
-  <rect x="200" y="230" width="1200" height="130" rx="14" fill="#FFFFFF" stroke="#E7E0D8" stroke-width="2"/>
-  <text x="248" y="305" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="22" letter-spacing="3" fill="#E4572E">01</text>
-  <text x="340" y="305" font-family="ui-sans-serif, -apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="30" fill="#1B1815">Scheduled Edge Functions + rule-based filtering</text>
+  <rect x="80" y="224" width="440" height="452" fill="#FFFFFF" stroke="#E2E2DC" stroke-width="2"/>
+  <text x="116" y="284" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="19" letter-spacing="2.5" fill="#C2410C">STEP 01</text>
+  <text x="116" y="330" font-family="ui-sans-serif, -apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="29" font-weight="600" fill="#161814">Deterministic first</text>
+  <text x="116" y="384" font-family="ui-sans-serif, -apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="21" fill="#4A4D46">Scheduled fetch of each venue&#8217;s own</text>
+  <text x="116" y="414" font-family="ui-sans-serif, -apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="21" fill="#4A4D46">site + menu PDFs — 15 candidate paths</text>
+  <text x="116" y="444" font-family="ui-sans-serif, -apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="21" fill="#4A4D46">(/whats-on, /specials, /menu&#8230;).</text>
+  <text x="116" y="490" font-family="ui-sans-serif, -apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="21" fill="#4A4D46">SSRF-safe fetch, 12s timeouts, 8MB</text>
+  <text x="116" y="520" font-family="ui-sans-serif, -apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="21" fill="#4A4D46">PDF cap. Day/price/time regex builds</text>
+  <text x="116" y="550" font-family="ui-sans-serif, -apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="21" fill="#4A4D46">compact candidate snippets, keeping</text>
+  <text x="116" y="580" font-family="ui-sans-serif, -apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="21" fill="#4A4D46">most prompts under 1k tokens.</text>
+  <text x="116" y="636" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="18" letter-spacing="1" fill="#1E7A4E">506 VENUES · NO TOKENS SPENT YET</text>
 
-  <!-- Arrow 1 -->
-  <line x1="800" y1="372" x2="800" y2="432" stroke="#E4572E" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="520" y1="450" x2="576" y2="450" stroke="#C2410C" stroke-width="2" marker-end="url(#arrow)"/>
 
   <!-- Stage 2 -->
-  <rect x="200" y="445" width="1200" height="130" rx="14" fill="#FFFFFF" stroke="#E7E0D8" stroke-width="2"/>
-  <text x="248" y="520" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="22" letter-spacing="3" fill="#E4572E">02</text>
-  <text x="340" y="520" font-family="ui-sans-serif, -apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="30" fill="#1B1815">Gemini structured extraction, confidence scoring, dedupe</text>
+  <rect x="580" y="224" width="440" height="452" fill="#FFFFFF" stroke="#E2E2DC" stroke-width="2"/>
+  <text x="616" y="284" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="19" letter-spacing="2.5" fill="#C2410C">STEP 02</text>
+  <text x="616" y="330" font-family="ui-sans-serif, -apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="29" font-weight="600" fill="#161814">LLM with guardrails</text>
+  <text x="616" y="384" font-family="ui-sans-serif, -apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="21" fill="#4A4D46">Gemini returns structured JSON only.</text>
+  <text x="616" y="414" font-family="ui-sans-serif, -apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="21" fill="#4A4D46">Day names mapped deterministically in</text>
+  <text x="616" y="444" font-family="ui-sans-serif, -apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="21" fill="#4A4D46">code; one-off events filtered out.</text>
+  <text x="616" y="490" font-family="ui-sans-serif, -apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="21" fill="#4A4D46">Per-deal confidence scores, dedupe by</text>
+  <text x="616" y="520" font-family="ui-sans-serif, -apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="21" fill="#4A4D46">title + days + time + price. 30-day</text>
+  <text x="616" y="550" font-family="ui-sans-serif, -apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="21" fill="#4A4D46">freshness guard: a cached venue never</text>
+  <text x="616" y="580" font-family="ui-sans-serif, -apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="21" fill="#4A4D46">re-invokes the model.</text>
+  <text x="616" y="636" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="18" letter-spacing="1" fill="#1E7A4E">642 DEALS · 0.94 AVG CONFIDENCE</text>
 
-  <!-- Arrow 2 -->
-  <line x1="800" y1="587" x2="800" y2="647" stroke="#E4572E" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="1020" y1="450" x2="1076" y2="450" stroke="#C2410C" stroke-width="2" marker-end="url(#arrow)"/>
 
   <!-- Stage 3 -->
-  <rect x="200" y="660" width="1200" height="130" rx="14" fill="#FFFFFF" stroke="#E7E0D8" stroke-width="2"/>
-  <text x="248" y="735" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="22" letter-spacing="3" fill="#E4572E">03</text>
-  <text x="340" y="735" font-family="ui-sans-serif, -apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="30" fill="#1B1815">Human review queue, approved deals to Postgres (RLS)</text>
+  <rect x="1080" y="224" width="440" height="452" fill="#FFFFFF" stroke="#E2E2DC" stroke-width="2"/>
+  <text x="1116" y="284" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="19" letter-spacing="2.5" fill="#C2410C">STEP 03</text>
+  <text x="1116" y="330" font-family="ui-sans-serif, -apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="29" font-weight="600" fill="#161814">Human in the loop</text>
+  <text x="1116" y="384" font-family="ui-sans-serif, -apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="21" fill="#4A4D46">Confidence &lt; 0.85 routes to an in-app</text>
+  <text x="1116" y="414" font-family="ui-sans-serif, -apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="21" fill="#4A4D46">review queue: approve / edit / reject.</text>
+  <text x="1116" y="460" font-family="ui-sans-serif, -apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="21" fill="#4A4D46">Only approved rows reach clients —</text>
+  <text x="1116" y="490" font-family="ui-sans-serif, -apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="21" fill="#4A4D46">Postgres RLS + SECURITY DEFINER</text>
+  <text x="1116" y="520" font-family="ui-sans-serif, -apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="21" fill="#4A4D46">RPCs. Every deal carries provenance:</text>
+  <text x="1116" y="550" font-family="ui-sans-serif, -apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="21" fill="#4A4D46">source URL + last-verified date,</text>
+  <text x="1116" y="580" font-family="ui-sans-serif, -apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="21" fill="#4A4D46">shown in the app.</text>
+  <text x="1116" y="636" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="18" letter-spacing="1" fill="#1E7A4E">581 APPROVED DEALS LIVE</text>
+
+  <!-- Observability strip -->
+  <line x1="80" y1="724" x2="1520" y2="724" stroke="#161814" stroke-width="2"/>
+  <text x="80" y="768" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="18" letter-spacing="2.5" fill="#C2410C">OBSERVABILITY</text>
+  <text x="360" y="766" font-family="ui-sans-serif, -apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="21" fill="#4A4D46">Every run logged to a pipeline_runs table — status, rows processed, duration, errors —</text>
+  <text x="360" y="796" font-family="ui-sans-serif, -apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="21" fill="#4A4D46">across 6 scheduled edge functions: deals, photos, attributes, atmosphere, sport, cleanup.</text>
+  <text x="1520" y="782" text-anchor="end" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="26" letter-spacing="1" fill="#1E7A4E">182/182 RUNS SUCCEEDED</text>
+
+  <!-- Footer -->
+  <text x="80" y="856" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="15" letter-spacing="1.5" fill="#6B6E66">RAFAEL PINCUS — PUBTHURSDAYS.APP</text>
+  <text x="1520" y="856" text-anchor="end" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="15" letter-spacing="1.5" fill="#6B6E66">PRODUCTION DATA · JUL 2026</text>
 </svg>

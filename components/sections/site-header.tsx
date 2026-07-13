@@ -1,6 +1,7 @@
 import { links, site } from "@/lib/content";
 
-const navLinkClasses = "text-ink transition-colors duration-150 hover:text-accent";
+const navLinkClasses =
+  "text-ink transition-colors duration-150 hover:text-accent-warm";
 
 export function SiteHeader() {
   return (

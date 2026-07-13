@@ -5,7 +5,7 @@ export function SiteFooter() {
     <footer aria-label="Availability and contact">
       <section aria-labelledby="contact-heading" className="pb-28 pt-24 sm:pt-28">
         <p
-          className="mb-7 font-mono text-xs tracking-[0.06em] text-accent"
+          className="mb-7 font-mono text-xs tracking-[0.06em] text-accent-warm"
           id="contact-kicker"
         >
           {contact.kicker}
@@ -19,7 +19,7 @@ export function SiteFooter() {
         <div className="mt-11 flex flex-wrap gap-3.5 font-mono text-[13px] tracking-[0.04em]">
           <a
             href={`mailto:${links.email}`}
-            className="bg-ink px-7 py-3.5 text-background transition-colors duration-150 hover:bg-accent"
+            className="bg-ink px-7 py-3.5 text-background transition-colors duration-150 hover:bg-accent-warm"
           >
             {contact.emailCta}
           </a>

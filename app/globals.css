@@ -6,6 +6,8 @@
   --ink: #161814;
   --accent: #1e7a4e;
   --accent-hover: #16603c;
+  --accent-warm: #c2410c;
+  --accent-warm-hover: #9a3412;
   --muted: #6b6e66;
   --hairline: #e2e2dc;
   --hairline-strong: #d6d6cf;
@@ -19,6 +21,8 @@
   --color-ink: var(--ink);
   --color-accent: var(--accent);
   --color-accent-hover: var(--accent-hover);
+  --color-accent-warm: var(--accent-warm);
+  --color-accent-warm-hover: var(--accent-warm-hover);
   --color-muted: var(--muted);
   --color-border: var(--hairline);
   --color-border-strong: var(--hairline-strong);
@@ -50,7 +54,7 @@ body {
 }
 
 ::selection {
-  background: var(--accent);
+  background: var(--accent-warm);
   color: var(--background);
 }
 
