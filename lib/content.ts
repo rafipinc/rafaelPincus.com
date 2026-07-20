@@ -125,14 +125,17 @@ export const skills = {
     },
   ] satisfies SkillGroup[],
   metricsIntro:
-    "How I actually use AI, measured from my own Claude Code history over the past five weeks:",
+    "How I actually use AI, measured from my own Claude Code and Codex histories:",
   metrics: [
-    { value: "177M", label: "TOKENS PROCESSED · 5 WEEKS" },
-    { value: "95%", label: "PROMPT-CACHE HIT RATE" },
+    { value: "177M", label: "CLAUDE TOKENS · SINCE JUN 2026" },
+    { value: "94.8%", label: "CLAUDE PROMPT-CACHE HIT RATE" },
     { value: "5", label: "CLAUDE MODELS ROUTED BY TASK" },
+    { value: "1.0B", label: "CODEX TOKENS · SINCE OCT 2025" },
+    { value: "94.6%", label: "CODEX INPUT-CACHE REUSE" },
+    { value: "213", label: "CODEX AGENT RUNS · 110 DELEGATED" },
   ] satisfies Metric[],
   footnote:
-    "CACHE-WARM SESSIONS OVER COLD RESTARTS · CHEAPEST CAPABLE MODEL PER JOB · AI KEYS SERVER-SIDE · SPEND CAPPED IN EVERY PIPELINE",
+    "CACHE-WARM SESSIONS OVER COLD RESTARTS · CHEAPEST CAPABLE MODEL PER JOB · SUBAGENTS FOR PARALLEL WORK · AI KEYS SERVER-SIDE · SPEND CAPPED IN EVERY PIPELINE",
 } as const;
 
 export const suncorp = {
