@@ -14,11 +14,17 @@ export type ExperienceItem = {
   body: string;
 };
 
+export type DetailItem = {
+  label: string;
+  title: string;
+  body: string;
+};
+
 export const site = {
   name: "Rafael Pincus",
   nickname: "Rafi",
   oneLiner:
-    "Software engineer, 5 years shipping iOS at Suncorp. I build AI-powered products end to end.",
+    "Forward deployed engineer turning ambiguous problems into reliable products, integrations and AI systems.",
   location: "Sydney, Australia",
 } as const;
 
@@ -36,11 +42,11 @@ export const video: { id: string | null } = {
 };
 
 export const hero = {
-  kicker: "SOFTWARE ENGINEER · SYDNEY, AUSTRALIA",
-  heading: "I build AI-powered products end to end.",
-  sub: "Five years shipping iOS at Suncorp, one of Australia's biggest insurers. Now building web apps and AI data pipelines that keep a human in the loop.",
-  pillPrimary: "5 YRS iOS AT SUNCORP",
-  pillSecondary: "AI PRODUCTS · END TO END",
+  kicker: "SOFTWARE ENGINEER · FORWARD DEPLOYED · SYDNEY",
+  heading: "I turn messy problems into reliable software.",
+  sub: "Five years shipping inside a regulated business at Suncorp. Now building full-stack products, third-party integrations and AI pipelines — from discovery and architecture through release.",
+  pillPrimary: "DISCOVERY → ARCHITECTURE → RELEASE",
+  pillSecondary: "iOS · FULL-STACK · AI",
 } as const;
 
 export const pubThursdays = {
@@ -82,7 +88,33 @@ export const pipeline = {
     },
   ] satisfies PipelineStage[],
   footnote:
-    "UNDER THE HOOD: DENO EDGE FUNCTIONS ON SUPABASE · SSRF-SAFE FETCHING · PROMPT-INJECTION DEFENCES · PER-USER RATE LIMITS · POSTGRES ROW-LEVEL SECURITY · EVERY RUN LOGGED · 109 MIGRATIONS · 320+ AUTOMATED TESTS",
+    "UNDER THE HOOD: DENO EDGE FUNCTIONS ON SUPABASE · SSRF-SAFE FETCHING · PROMPT-INJECTION DEFENCES · PER-USER RATE LIMITS · POSTGRES ROW-LEVEL SECURITY · EVERY RUN LOGGED · 100+ SQL MIGRATIONS · 300+ AUTOMATED TESTS",
+} as const;
+
+export const bookkeeper = {
+  kicker: "03 / IN PROGRESS",
+  heading: "Bookkeeper",
+  status: "● FULL-STACK SAAS · ACTIVE DEVELOPMENT",
+  body: "A bookkeeping product for solo operators who need a clear view of their business without becoming accounting-system experts. The visible product is deliberately simple; the hard work sits underneath, making accounting-data access reliable, keeping every tenant isolated and turning an external API into something a user can trust.",
+  details: [
+    {
+      label: "CUSTOMER PROBLEM",
+      title: "Clarity before features",
+      body: "The product starts with a narrow job: help a solo operator connect their business, understand what needs attention and act without navigating an enterprise accounting suite.",
+    },
+    {
+      label: "INTEGRATION",
+      title: "Xero, end to end",
+      body: "Built multi-tenant OAuth 2.0 with PKCE, encrypted token storage and refresh coordination, then verified the complete connection flow against Xero's live API.",
+    },
+    {
+      label: "RELIABILITY",
+      title: "Safe by default",
+      body: "Tenant isolation lives in Postgres row-level security. Advisory locks prevent refresh races, while background jobs keep slow or failure-prone integration work out of the request path.",
+    },
+  ] satisfies DetailItem[],
+  techLine:
+    "Next.js · TypeScript · Supabase/Postgres · Xero OAuth 2.0 · Inngest · Vercel",
 } as const;
 
 export type SkillGroup = {
@@ -91,7 +123,7 @@ export type SkillGroup = {
 };
 
 export const skills = {
-  kicker: "03 / SKILLS",
+  kicker: "06 / SKILLS",
   heading: "Breadth, with a bias for the right tool.",
   body: "The languages here are ones I've shipped production code in. The AI tools are my daily loop: I work in Claude Code, Codex, Gemini and Copilot every day, and I treat tokens like any other production cost, cached, routed to the cheapest capable model, and measured.",
   groups: [
@@ -131,7 +163,7 @@ export const skills = {
 } as const;
 
 export const suncorp = {
-  kicker: "04 / EXPERIENCE",
+  kicker: "04 / ENTERPRISE",
   heading: "Suncorp",
   sub: "iOS ENGINEER · 5 YEARS",
   items: [
@@ -150,8 +182,31 @@ export const suncorp = {
   ] satisfies ExperienceItem[],
 } as const;
 
+export const forwardDeployed = {
+  kicker: "05 / FORWARD DEPLOYED",
+  heading: "Close to the problem. Accountable for the outcome.",
+  body: "The common thread in my work is not a particular stack. It is getting enough context to find the real constraint, translating it into a solution people can align around, and staying with the work until it is running reliably.",
+  details: [
+    {
+      label: "DISCOVER",
+      title: "Find the problem behind the request",
+      body: "Years of customer-facing technical discovery taught me to ask what someone is trying to achieve, surface the constraints and explain trade-offs without hiding behind jargon.",
+    },
+    {
+      label: "TRANSLATE",
+      title: "Make ambiguity actionable",
+      body: "I have mapped business workflows into a prioritised roadmap, aligned iOS and Android on shared implementation patterns, and turned product requirements into release-ready architecture.",
+    },
+    {
+      label: "DELIVER",
+      title: "Own the last mile",
+      body: "From Mastercard and telematics integrations to secure authentication and App Store releases, I stay involved through edge cases, rollout, production support and the final sign-off.",
+    },
+  ] satisfies DetailItem[],
+} as const;
+
 export const contact = {
-  kicker: "05 / CONTACT",
+  kicker: "07 / CONTACT",
   heading:
     "Looking for forward-deployed and solutions engineering roles at AI-native companies.",
   body: "Five years at Suncorp taught me to build inside a regulated business and explain technical decisions to people who don't write code. Pub Thursdays is what that looks like when I own the whole thing: I built it, I demo it, and every number on this page comes from production. Happy to walk through any of it, or just to chat about what I could do for your team.",

@@ -1,3 +1,5 @@
+import { Bookkeeper } from "@/components/sections/bookkeeper";
+import { ForwardDeployed } from "@/components/sections/forward-deployed";
 import { Hero } from "@/components/sections/hero";
 import { Pipeline } from "@/components/sections/pipeline";
 import { PubThursdays } from "@/components/sections/pub-thursdays";
@@ -19,8 +21,10 @@ export default async function Home() {
         <Hero />
         <PubThursdays stats={stats} />
         <Pipeline stats={stats} />
-        <Skills />
+        <Bookkeeper />
         <Suncorp />
+        <ForwardDeployed />
+        <Skills />
       </main>
       <SiteFooter />
     </div>

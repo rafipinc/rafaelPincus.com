@@ -14,14 +14,14 @@ const plexMono = IBM_Plex_Mono({
 });
 
 const description =
-  "Software engineer in Sydney building AI-powered products end to end: 5 years shipping iOS at Suncorp, plus Next.js web apps and LLM extraction pipelines with human review.";
+  "Forward deployed engineer in Sydney turning ambiguous problems into reliable products, integrations and AI systems, with five years shipping at Suncorp.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://rafaelpincus.com"),
-  title: "Rafael Pincus | Software Engineer, Sydney",
+  title: "Rafael Pincus | Forward Deployed Engineer",
   description,
   openGraph: {
-    title: "Rafael Pincus | Software Engineer, Sydney",
+    title: "Rafael Pincus | Forward Deployed Engineer",
     description,
     url: "/",
     siteName: "Rafael Pincus",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Rafael Pincus | Software Engineer, Sydney",
+    title: "Rafael Pincus | Forward Deployed Engineer",
     description,
   },
 };
