@@ -2,11 +2,35 @@ import Image from "next/image";
 import { SectionShell } from "@/components/sections/section-shell";
 import { YouTubeFacade } from "@/components/youtube-facade";
 import { links, pubThursdays, video } from "@/lib/content";
+import type { LiveStats } from "@/lib/live-stats";
 
 const ctaClasses =
   "border border-ink px-5 py-2.5 font-mono text-xs tracking-[0.04em] text-ink transition-colors duration-150 hover:bg-ink hover:text-background";
 
-export function PubThursdays() {
+export function PubThursdays({ stats }: { stats: LiveStats }) {
+  const metrics = [
+    { value: String(stats.approvedDeals), label: "APPROVED DEALS" },
+    { value: String(stats.venuesCovered), label: "VENUES COVERED" },
+    {
+      value: String(stats.pipelineRuns),
+      label: `PIPELINE RUNS · ${stats.failedRuns} FAILED`,
+    },
+    {
+      value: stats.avgConfidence.toFixed(2),
+      label: "AVG AI CONFIDENCE (0–1)",
+    },
+  ];
+  const fetchedOn = stats.fetchedAt
+    ? new Date(stats.fetchedAt)
+        .toLocaleDateString("en-AU", {
+          day: "numeric",
+          month: "short",
+          year: "numeric",
+          timeZone: "Australia/Sydney",
+        })
+        .toUpperCase()
+    : null;
+
   return (
     <SectionShell kicker={pubThursdays.kicker} labelledBy="pub-thursdays-heading">
       <div className="flex flex-wrap items-baseline gap-x-5 gap-y-2">
@@ -25,7 +49,7 @@ export function PubThursdays() {
       </p>
 
       <dl className="mt-12 grid grid-cols-2 border-l border-t border-t-ink border-l-border md:grid-cols-4">
-        {pubThursdays.metrics.map((metric) => (
+        {metrics.map((metric) => (
           <div
             key={metric.label}
             className="border-b border-r border-border px-5 pb-7 pt-6"
@@ -39,12 +63,19 @@ export function PubThursdays() {
           </div>
         ))}
       </dl>
+      {stats.live && fetchedOn ? (
+        <p className="mt-3 font-mono text-[11px] tracking-[0.05em] text-accent">
+          {pubThursdays.liveCaptionPrefix} {fetchedOn}
+        </p>
+      ) : null}
 
-      <div className="mt-5 grid gap-5 md:grid-cols-[1fr_1.4fr]">
-        <YouTubeFacade
-          videoId={video.id}
-          title={pubThursdays.demoVideoTitle}
-        />
+      <div className="mt-5 grid gap-5 md:grid-cols-[1fr_1.4fr] print:grid-cols-1">
+        <div className="print:hidden">
+          <YouTubeFacade
+            videoId={video.id}
+            title={pubThursdays.demoVideoTitle}
+          />
+        </div>
         <Image
           src={pubThursdays.pipelineImage.src}
           alt={pubThursdays.pipelineImage.alt}

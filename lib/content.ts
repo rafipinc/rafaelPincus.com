@@ -7,7 +7,6 @@ export type PipelineStage = {
   step: string;
   title: string;
   body: string;
-  stat: string;
 };
 
 export type ExperienceItem = {
@@ -25,6 +24,7 @@ export const site = {
 
 export const links = {
   appStore: "https://apps.apple.com/au/app/pub-thursdays/id6760244735" as string | null,
+  resume: "/Rafael-Pincus-Resume.pdf",
   github: "https://github.com/rafipinc",
   linkedin: "https://www.linkedin.com/in/rafael-pincus-a85198194/",
   email: "rafi.pincus@gmail.com",
@@ -47,14 +47,9 @@ export const pubThursdays = {
   kicker: "01 / FLAGSHIP",
   heading: "Pub Thursdays",
   status: "● LIVE ON THE APP STORE · APR 2026",
-  body: "Pub Thursdays started as a fix for my own friend group: a weekly pub night that needed someone to remember whose turn it was to pick. The app handles the rotation, voting, ratings, leaderboards and reminders, and recommends new pubs based on what the group has loved. Behind it, an automated pipeline I built reads 507 Sydney venue websites, uses AI to extract each pub's weekly specials, and routes anything uncertain to a human for approval. The result is a live deals catalog with no content team.",
+  body: "Pub Thursdays started as a fix for my own friend group: a weekly pub night that needed someone to remember whose turn it was to pick. The app handles the rotation, voting, ratings, leaderboards and reminders, and recommends new pubs based on what the group has loved. Behind it, an automated pipeline I built reads 500+ Sydney venue websites, uses AI to extract each pub's weekly specials, and routes anything uncertain to a human for approval. The result is a live deals catalog with no content team.",
   demoVideoTitle: "Pub Thursdays walkthrough, 5 minutes",
-  metrics: [
-    { value: "582", label: "APPROVED DEALS" },
-    { value: "124", label: "VENUES COVERED" },
-    { value: "204", label: "PIPELINE RUNS · 0 FAILED" },
-    { value: "0.93", label: "AVG AI CONFIDENCE (0–1)" },
-  ] satisfies Metric[],
+  liveCaptionPrefix: "● LIVE FROM PRODUCTION · FETCHED",
   pipelineImage: {
     src: "/pipeline_slide.svg",
     alt: "Architecture overview of the Pub Thursdays deal-ingestion pipeline: scheduled Edge Functions with rule-based filtering, then Gemini structured extraction with confidence scoring and dedupe, then a human review queue writing approved deals to Postgres with row-level security.",
@@ -74,19 +69,16 @@ export const pipeline = {
       step: "STEP 01",
       title: "Start cheap and predictable",
       body: "Scheduled jobs visit each pub's own website and menu PDFs, never third-party listings, which my testing showed can sit years out of date. Simple pattern-matching trims each page down to the handful of lines that look like deals, so most of the work costs nothing to run.",
-      stat: "507 VENUES CHECKED AUTOMATICALLY",
     },
     {
       step: "STEP 02",
       title: "AI with guardrails",
       body: "Google's Gemini model turns those snippets into structured deals: what it is, which day, what price, with a confidence score on every one. Duplicates are removed, one-off events are filtered out, and results are cached for 30 days so the AI is never called twice for the same venue.",
-      stat: "661 DEALS EXTRACTED · 0.93 AVG CONFIDENCE",
     },
     {
       step: "STEP 03",
       title: "A human has the final say",
-      body: "Anything the AI is less than 85% sure about is held back in a review queue inside the app, and only deals I approve ever reach users: 582 of the 661 extracted so far. Every published deal links back to its source and shows when it was last verified, so nothing stale or invented makes it to the app.",
-      stat: "204 RUNS · 0 FAILED",
+      body: "Anything the AI is less than 85% sure about is held back in a review queue inside the app, and only deals I approve ever reach users. Every published deal links back to its source and shows when it was last verified, so nothing stale or invented makes it to the app.",
     },
   ] satisfies PipelineStage[],
   footnote:

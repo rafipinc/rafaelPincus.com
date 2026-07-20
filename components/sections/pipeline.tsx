@@ -1,7 +1,14 @@
 import { SectionShell } from "@/components/sections/section-shell";
 import { pipeline } from "@/lib/content";
+import type { LiveStats } from "@/lib/live-stats";
 
-export function Pipeline() {
+export function Pipeline({ stats }: { stats: LiveStats }) {
+  const stageStats = [
+    `${stats.venuesTracked} VENUES CHECKED AUTOMATICALLY`,
+    `${stats.dealsExtracted} DEALS EXTRACTED · ${stats.avgConfidence.toFixed(2)} AVG CONFIDENCE`,
+    `${stats.approvedDeals} APPROVED · ${stats.pipelineRuns} RUNS · ${stats.failedRuns} FAILED`,
+  ];
+
   return (
     <SectionShell kicker={pipeline.kicker} labelledBy="pipeline-heading">
       <h2
@@ -11,7 +18,7 @@ export function Pipeline() {
         {pipeline.heading}
       </h2>
       <ol className="grid list-none border-t border-ink sm:grid-cols-3">
-        {pipeline.stages.map((stage) => (
+        {pipeline.stages.map((stage, i) => (
           <li
             key={stage.step}
             className="border-b border-border py-7 sm:mr-6 sm:border-b-0 sm:border-r sm:pb-2 sm:pr-6 last:border-b-0 sm:last:mr-0 sm:last:border-r-0"
@@ -24,7 +31,7 @@ export function Pipeline() {
               {stage.body}
             </p>
             <div className="mt-4 font-mono text-xs text-accent">
-              {stage.stat}
+              {stageStats[i]}
             </div>
           </li>
         ))}

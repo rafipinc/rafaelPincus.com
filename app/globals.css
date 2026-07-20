@@ -62,3 +62,36 @@ body {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
 }
+
+/* Clean output when a reviewer hits print or saves the page as a PDF. */
+@media print {
+  body {
+    background: #fff;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Condense the editorial whitespace for paper. */
+  section {
+    padding-top: 1.25rem !important;
+    padding-bottom: 1.25rem !important;
+  }
+
+  /* Never split a metric cell, pipeline stage, or experience row. */
+  li,
+  dl > div {
+    break-inside: avoid;
+  }
+
+  h1,
+  h2,
+  h3 {
+    break-after: avoid;
+  }
+
+  /* Print the email address next to contact links, since paper can't click. */
+  a[href^="mailto:"]::after {
+    content: " · rafi.pincus@gmail.com";
+    font-size: 11px;
+  }
+}
