@@ -18,7 +18,7 @@ export function YouTubeFacade({ videoId, title }: YouTubeFacadeProps) {
     return (
       <div
         role="img"
-        aria-label={`${title}. Demo video coming soon.`}
+        aria-label={`${title}. Video coming soon.`}
         className={`flex aspect-4/3 w-full flex-col items-center justify-center gap-3 border border-border ${hatchClasses}`}
       >
         <span
@@ -27,7 +27,7 @@ export function YouTubeFacade({ videoId, title }: YouTubeFacadeProps) {
         >
           <Play className="ml-0.5 h-4 w-4 fill-current" />
         </span>
-        <p className="font-mono text-xs text-muted">90S DEMO · COMING SOON</p>
+        <p className="font-mono text-xs text-muted">VIDEO · COMING SOON</p>
       </div>
     );
   }

@@ -1,9 +1,9 @@
-import { Bookkeeper } from "@/components/sections/bookkeeper";
 import { Hero } from "@/components/sections/hero";
 import { Pipeline } from "@/components/sections/pipeline";
 import { PubThursdays } from "@/components/sections/pub-thursdays";
 import { SiteFooter } from "@/components/sections/site-footer";
 import { SiteHeader } from "@/components/sections/site-header";
+import { Skills } from "@/components/sections/skills";
 import { Suncorp } from "@/components/sections/suncorp";
 
 export default function Home() {
@@ -14,7 +14,7 @@ export default function Home() {
         <Hero />
         <PubThursdays />
         <Pipeline />
-        <Bookkeeper />
+        <Skills />
         <Suncorp />
       </main>
       <SiteFooter />

@@ -41,22 +41,10 @@ export function PubThursdays() {
       </dl>
 
       <div className="mt-5 grid gap-5 md:grid-cols-[1fr_1.4fr]">
-        <div>
-          <YouTubeFacade
-            videoId={video.demoId}
-            title={pubThursdays.demoVideoTitle}
-          />
-          {video.fullId !== null && (
-            <p className="mt-3 font-mono text-xs">
-              <a
-                href={`https://www.youtube.com/watch?v=${video.fullId}`}
-                className="text-accent underline underline-offset-4 transition-colors duration-150 hover:text-accent-hover"
-              >
-                {pubThursdays.fullVideoLabel}
-              </a>
-            </p>
-          )}
-        </div>
+        <YouTubeFacade
+          videoId={video.id}
+          title={pubThursdays.demoVideoTitle}
+        />
         <Image
           src={pubThursdays.pipelineImage.src}
           alt={pubThursdays.pipelineImage.alt}

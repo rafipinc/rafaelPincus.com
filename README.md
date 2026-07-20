@@ -1,6 +1,6 @@
 # Rafi Pincus, portfolio
 
-Single-page portfolio site for Rafael (Rafi) Pincus: Pub Thursdays, the deal-ingestion pipeline behind it, Bookkeeper, and Suncorp experience.
+Single-page portfolio site for Rafael (Rafi) Pincus: Pub Thursdays, the deal-ingestion pipeline behind it, skills and AI tooling, and Suncorp experience.
 
 ## Stack
 
@@ -17,10 +17,10 @@ npm run dev
 
 All copy, stats, links, and video IDs live in `lib/content.ts`. Components only render from it.
 
-- **Video IDs:** set `video.demoId` and `video.fullId` in `lib/content.ts` to the unlisted YouTube IDs. While `demoId` is null the facade shows a designed poster; the full-walkthrough link only appears when `fullId` is set.
+- **Video ID:** set `video.id` in `lib/content.ts` to the YouTube ID of the 5-minute walkthrough. While it is null the facade shows a designed poster.
 - **App Store link:** set `links.appStore` to the real URL. Until then the CTA renders disabled with a "Link coming soon" title.
 - **Pipeline slide:** replace `public/pipeline_slide.svg` with the real slide, keeping the same filename (1600x900).
 
 ## Deploy
 
-Deploys as-is on Vercel. Update `metadataBase` in `app/layout.tsx` once the final domain is known.
+Deploys as-is on Vercel at https://rafaelpincus.com (DNS on Cloudflare: apex + www CNAMEs to Vercel, proxy off). `metadataBase` in `app/layout.tsx` points at the custom domain.

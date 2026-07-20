@@ -16,6 +16,9 @@ export function SiteFooter() {
         >
           {contact.heading}
         </h2>
+        <p className="mt-7 max-w-[62ch] text-pretty text-[16px] leading-relaxed">
+          {contact.body}
+        </p>
         <div className="mt-11 flex flex-wrap gap-3.5 font-mono text-[13px] tracking-[0.04em]">
           <a
             href={`mailto:${links.email}`}

@@ -24,6 +24,10 @@
 .DS_Store
 *.pem
 
+# local-only: video production assets and private planning docs
+/video-assets/
+/docs/
+
 # debug
 npm-debug.log*
 yarn-debug.log*

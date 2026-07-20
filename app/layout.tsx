@@ -17,7 +17,7 @@ const description =
   "Software engineer in Sydney building AI-powered products end to end: 5 years shipping iOS at Suncorp, plus Next.js web apps and LLM extraction pipelines with human review.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://rafi-portfolio-omega.vercel.app"),
+  metadataBase: new URL("https://rafaelpincus.com"),
   title: "Rafael Pincus | Software Engineer, Sydney",
   description,
   openGraph: {

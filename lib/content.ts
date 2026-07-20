@@ -15,12 +15,6 @@ export type ExperienceItem = {
   body: string;
 };
 
-export type SpecRow = {
-  label: string;
-  value: string;
-  accent?: boolean;
-};
-
 export const site = {
   name: "Rafael Pincus",
   nickname: "Rafi",
@@ -30,23 +24,19 @@ export const site = {
 } as const;
 
 export const links = {
-  // TODO: real App Store URL pending. Set it here and the CTA goes live.
-  appStore: null as string | null,
-  // TODO: verify GitHub handle.
-  github: "https://github.com/rafipincus",
-  linkedin: "https://linkedin.com/in/rafael-pincus",
+  appStore: "https://apps.apple.com/au/app/pub-thursdays/id6760244735" as string | null,
+  github: "https://github.com/rafipinc",
+  linkedin: "https://www.linkedin.com/in/rafael-pincus-a85198194/",
   email: "rafi.pincus@gmail.com",
 } as const;
 
-export const video: { demoId: string | null; fullId: string | null } = {
-  // Swap in the unlisted YouTube IDs when the videos are up.
-  // The facade shows a designed poster while demoId is null.
-  demoId: null,
-  fullId: null,
+export const video: { id: string | null } = {
+  // The facade shows a designed poster while id is null.
+  id: "T4Ss6IFDeuI",
 };
 
 export const hero = {
-  kicker: "SOFTWARE ENGINEER — SYDNEY, AUSTRALIA",
+  kicker: "SOFTWARE ENGINEER · SYDNEY, AUSTRALIA",
   heading: "I build AI-powered products end to end.",
   sub: "Five years shipping iOS at Suncorp, one of Australia's biggest insurers. Now building web apps and AI data pipelines that keep a human in the loop.",
   pillPrimary: "5 YRS iOS AT SUNCORP",
@@ -57,14 +47,13 @@ export const pubThursdays = {
   kicker: "01 / FLAGSHIP",
   heading: "Pub Thursdays",
   status: "● LIVE ON THE APP STORE · APR 2026",
-  body: "An iOS app for friend groups who run a weekly pub night. It handles whose turn it is to pick, voting, ratings, leaderboards and reminders — and recommends new pubs based on what the group has loved. Behind it, an automated pipeline reads 506 Sydney venue websites, uses AI to extract each pub's weekly specials, and routes anything uncertain to a human for approval. The result: a live deals catalog with no content team.",
-  demoVideoTitle: "Pub Thursdays demo, 90 seconds",
-  fullVideoLabel: "Watch the full 5-minute walkthrough",
+  body: "Pub Thursdays started as a fix for my own friend group: a weekly pub night that needed someone to remember whose turn it was to pick. The app handles the rotation, voting, ratings, leaderboards and reminders, and recommends new pubs based on what the group has loved. Behind it, an automated pipeline I built reads 507 Sydney venue websites, uses AI to extract each pub's weekly specials, and routes anything uncertain to a human for approval. The result is a live deals catalog with no content team.",
+  demoVideoTitle: "Pub Thursdays walkthrough, 5 minutes",
   metrics: [
-    { value: "581", label: "APPROVED DEALS" },
-    { value: "123", label: "VENUES COVERED" },
-    { value: "182/182", label: "PIPELINE RUNS SUCCEEDED" },
-    { value: "0.94", label: "AVG AI CONFIDENCE (0–1)" },
+    { value: "582", label: "APPROVED DEALS" },
+    { value: "124", label: "VENUES COVERED" },
+    { value: "204", label: "PIPELINE RUNS · 0 FAILED" },
+    { value: "0.93", label: "AVG AI CONFIDENCE (0–1)" },
   ] satisfies Metric[],
   pipelineImage: {
     src: "/pipeline_slide.svg",
@@ -84,36 +73,66 @@ export const pipeline = {
     {
       step: "STEP 01",
       title: "Start cheap and predictable",
-      body: "Scheduled jobs visit each pub's own website and menu PDFs — never third-party listings, which testing showed can sit years out of date. Simple pattern-matching trims each page down to the handful of lines that look like deals, so most of the work costs nothing to run.",
-      stat: "506 VENUES CHECKED AUTOMATICALLY",
+      body: "Scheduled jobs visit each pub's own website and menu PDFs, never third-party listings, which my testing showed can sit years out of date. Simple pattern-matching trims each page down to the handful of lines that look like deals, so most of the work costs nothing to run.",
+      stat: "507 VENUES CHECKED AUTOMATICALLY",
     },
     {
       step: "STEP 02",
       title: "AI with guardrails",
-      body: "Google's Gemini model turns those snippets into structured deals — what, which day, what price — with a confidence score on every one. Duplicates are removed, one-off events are filtered out, and results are cached for 30 days so the AI is never called twice for the same venue.",
-      stat: "0.94 AVG CONFIDENCE",
+      body: "Google's Gemini model turns those snippets into structured deals: what it is, which day, what price, with a confidence score on every one. Duplicates are removed, one-off events are filtered out, and results are cached for 30 days so the AI is never called twice for the same venue.",
+      stat: "661 DEALS EXTRACTED · 0.93 AVG CONFIDENCE",
     },
     {
       step: "STEP 03",
       title: "A human has the final say",
-      body: "Anything the AI is less than sure about lands in a review queue inside the app, and only approved deals ever reach users. Every published deal links back to its source and shows when it was last verified — so nothing stale or invented makes it to the app.",
-      stat: "182/182 RUNS SUCCEEDED",
+      body: "Anything the AI is less than 85% sure about is held back in a review queue inside the app, and only deals I approve ever reach users: 582 of the 661 extracted so far. Every published deal links back to its source and shows when it was last verified, so nothing stale or invented makes it to the app.",
+      stat: "204 RUNS · 0 FAILED",
     },
   ] satisfies PipelineStage[],
   footnote:
     "UNDER THE HOOD: DENO EDGE FUNCTIONS ON SUPABASE · SSRF-SAFE FETCHING · PROMPT-INJECTION DEFENCES · PER-USER RATE LIMITS · POSTGRES ROW-LEVEL SECURITY · EVERY RUN LOGGED · 109 MIGRATIONS · 320+ AUTOMATED TESTS",
 } as const;
 
-export const bookkeeper = {
-  kicker: "03 / IN DEVELOPMENT",
-  heading: "Bookkeeper",
-  body: "A bookkeeping tool for solo business owners that connects securely to their Xero accounts. Built with the care of a banking integration — encrypted credentials, safe token handling, background processing — and verified end to end against the real Xero API.",
-  specs: [
-    { label: "STACK", value: "Next.js · TypeScript · Supabase" },
-    { label: "AUTH", value: "Xero OAuth 2.0 + PKCE" },
-    { label: "JOBS", value: "Inngest" },
-    { label: "STATUS", value: "ACTIVE", accent: true },
-  ] satisfies SpecRow[],
+export type SkillGroup = {
+  label: string;
+  items: string;
+};
+
+export const skills = {
+  kicker: "03 / SKILLS",
+  heading: "Breadth, with a bias for the right tool.",
+  body: "The languages here are ones I've shipped production code in. The AI tools are my daily loop: I work in Claude Code, Codex, Gemini and Copilot every day, and I treat tokens like any other production cost, cached, routed to the cheapest capable model, and measured.",
+  groups: [
+    {
+      label: "AI TOOLING",
+      items:
+        "Claude Code · OpenAI Codex · Gemini API · GitHub Copilot · LLM pipeline design · prompt engineering · structured extraction",
+    },
+    {
+      label: "LANGUAGES & FRAMEWORKS",
+      items:
+        "Swift 6 · SwiftUI · UIKit · TypeScript · Next.js · Python · SQL · Deno · MVVM · Clean Architecture",
+    },
+    {
+      label: "BACKEND & INFRA",
+      items:
+        "Supabase (Postgres, RLS, Auth, Edge Functions) · REST APIs · APNs · JWT (ECDSA) · Firebase · AWS · Jenkins · Xcode Cloud",
+    },
+    {
+      label: "TOOLS & PRACTICE",
+      items:
+        "Git · JIRA · Confluence · LaunchDarkly · Figma · Agile / Scrum · App Store Connect",
+    },
+  ] satisfies SkillGroup[],
+  metricsIntro:
+    "How I actually use AI, measured from my own Claude Code history over the past five weeks:",
+  metrics: [
+    { value: "177M", label: "TOKENS PROCESSED · 5 WEEKS" },
+    { value: "95%", label: "PROMPT-CACHE HIT RATE" },
+    { value: "5", label: "CLAUDE MODELS ROUTED BY TASK" },
+  ] satisfies Metric[],
+  footnote:
+    "CACHE-WARM SESSIONS OVER COLD RESTARTS · CHEAPEST CAPABLE MODEL PER JOB · AI KEYS SERVER-SIDE · SPEND CAPPED IN EVERY PIPELINE",
 } as const;
 
 export const suncorp = {
@@ -127,7 +146,7 @@ export const suncorp = {
     },
     {
       stat: "LEAD",
-      body: "Led the mobile front-end migration for Suncorp's highest-priority program — Duck Creek insurance data — defining shared patterns across iOS and Android.",
+      body: "Led the mobile front-end migration for Suncorp's highest-priority program, the Duck Creek insurance platform, defining shared patterns across iOS and Android.",
     },
     {
       stat: "−50%",
@@ -140,6 +159,7 @@ export const contact = {
   kicker: "05 / CONTACT",
   heading:
     "Looking for forward-deployed and solutions engineering roles at AI-native companies.",
+  body: "Five years at Suncorp taught me to build inside a regulated business and explain technical decisions to people who don't write code. Pub Thursdays is what that looks like when I own the whole thing: I built it, I demo it, and every number on this page comes from production. Happy to walk through any of it, or just to chat about what I could do for your team.",
   emailCta: "GET IN TOUCH →",
   linkedinLabel: "LINKEDIN",
 } as const;
