@@ -54,14 +54,14 @@
   <text x="1116" y="520" font-family="ui-sans-serif, -apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="21" fill="#4A4D46">RPCs. Every deal carries provenance:</text>
   <text x="1116" y="550" font-family="ui-sans-serif, -apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="21" fill="#4A4D46">source URL + last-verified date,</text>
   <text x="1116" y="580" font-family="ui-sans-serif, -apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="21" fill="#4A4D46">shown in the app.</text>
-  <text x="1116" y="636" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="18" letter-spacing="1" fill="#1E7A4E">582 APPROVED DEALS LIVE</text>
+  <text x="1116" y="636" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="18" letter-spacing="1" fill="#1E7A4E">APPROVED DEALS LIVE</text>
 
   <!-- Observability strip -->
   <line x1="80" y1="724" x2="1520" y2="724" stroke="#161814" stroke-width="2"/>
   <text x="80" y="768" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="18" letter-spacing="2.5" fill="#C2410C">OBSERVABILITY</text>
   <text x="360" y="766" font-family="ui-sans-serif, -apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="21" fill="#4A4D46">Every run logs status, rows, duration and errors</text>
   <text x="360" y="796" font-family="ui-sans-serif, -apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="21" fill="#4A4D46">to pipeline_runs across 6 scheduled edge functions.</text>
-  <text x="1520" y="782" text-anchor="end" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="26" letter-spacing="1" fill="#1E7A4E">204 RUNS · 0 FAILED</text>
+  <text x="1520" y="782" text-anchor="end" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="26" letter-spacing="1" fill="#1E7A4E">OBSERVABLE RUN LOG</text>
 
   <!-- Footer -->
   <text x="80" y="856" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="15" letter-spacing="1.5" fill="#6B6E66">RAFAEL PINCUS · PUBTHURSDAYS.APP</text>

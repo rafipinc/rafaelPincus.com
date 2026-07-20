@@ -5,9 +5,12 @@ const navLinkClasses =
 
 export function SiteHeader() {
   return (
-    <header className="flex items-baseline justify-between border-b border-ink py-7 font-mono text-xs tracking-[0.04em]">
+    <header className="flex flex-col gap-4 border-b border-ink py-7 font-mono text-xs tracking-[0.04em] sm:flex-row sm:items-baseline sm:justify-between">
       <div className="font-medium text-ink">{site.name.toUpperCase()}</div>
-      <nav aria-label="Contact links" className="flex gap-5 sm:gap-7">
+      <nav
+        aria-label="Contact links"
+        className="flex flex-wrap gap-x-5 gap-y-2 sm:gap-x-7"
+      >
         <a href={links.resume} className={navLinkClasses}>
           RÉSUMÉ
         </a>
