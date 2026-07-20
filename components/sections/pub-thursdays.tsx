@@ -69,20 +69,41 @@ export function PubThursdays({ stats }: { stats: LiveStats }) {
         </p>
       ) : null}
 
-      <div className="mt-5 grid gap-5 md:grid-cols-[1fr_1.4fr] print:grid-cols-1">
-        <div className="print:hidden">
+      <section
+        aria-labelledby="pub-thursdays-demo-heading"
+        className="mt-10 border-t border-ink pt-7 print:hidden"
+      >
+        <p className="font-mono text-xs tracking-[0.06em] text-accent-warm">
+          {pubThursdays.demoKicker}
+        </p>
+        <h3
+          id="pub-thursdays-demo-heading"
+          className="mt-4 text-2xl font-medium tracking-[-0.02em] text-ink sm:text-3xl"
+        >
+          {pubThursdays.demoHeading}
+        </h3>
+        <p className="mt-3 max-w-[58ch] text-pretty text-[15.5px] leading-relaxed">
+          {pubThursdays.demoBody}
+        </p>
+        <div className="mt-6">
           <YouTubeFacade
             videoId={video.id}
             title={pubThursdays.demoVideoTitle}
           />
         </div>
+      </section>
+
+      <div className="mt-10 border-t border-border pt-6">
+        <p className="font-mono text-[11px] tracking-[0.06em] text-accent-warm">
+          {pubThursdays.architectureKicker}
+        </p>
         <Image
           src={pubThursdays.pipelineImage.src}
           alt={pubThursdays.pipelineImage.alt}
           width={pubThursdays.pipelineImage.width}
           height={pubThursdays.pipelineImage.height}
           unoptimized
-          className="h-full w-full border border-border object-cover"
+          className="mt-4 h-auto w-full border border-border"
         />
       </div>
 

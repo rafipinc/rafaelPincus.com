@@ -19,7 +19,7 @@ export function YouTubeFacade({ videoId, title }: YouTubeFacadeProps) {
       <div
         role="img"
         aria-label={`${title}. Video coming soon.`}
-        className={`flex aspect-4/3 w-full flex-col items-center justify-center gap-3 border border-border ${hatchClasses}`}
+        className={`flex aspect-video w-full flex-col items-center justify-center gap-3 border border-border ${hatchClasses}`}
       >
         <span
           aria-hidden="true"
@@ -34,7 +34,7 @@ export function YouTubeFacade({ videoId, title }: YouTubeFacadeProps) {
 
   if (playing) {
     return (
-      <div className="aspect-4/3 w-full overflow-hidden border border-border bg-ink">
+      <div className="aspect-video w-full overflow-hidden border border-border bg-ink">
         <iframe
           className="h-full w-full"
           src={`https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1`}
@@ -51,18 +51,18 @@ export function YouTubeFacade({ videoId, title }: YouTubeFacadeProps) {
       type="button"
       onClick={() => setPlaying(true)}
       aria-label={`Play video: ${title}`}
-      className="group relative block aspect-4/3 w-full overflow-hidden border border-border bg-ink"
+      className="group relative block aspect-video w-full overflow-hidden border border-border bg-ink"
     >
       {/* eslint-disable-next-line @next/next/no-img-element -- YouTube-hosted thumbnail, intentionally unoptimized */}
       <img
-        src={`https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`}
+        src={`https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`}
         alt=""
         loading="lazy"
         className="h-full w-full object-cover"
       />
       <span className="absolute inset-0 flex items-center justify-center">
-        <span className="flex h-14 w-14 items-center justify-center rounded-full bg-accent text-white transition-colors duration-150 group-hover:bg-accent-hover">
-          <Play className="ml-1 h-6 w-6 fill-current" />
+        <span className="flex h-16 w-16 items-center justify-center rounded-full bg-accent text-white shadow-lg transition-transform duration-150 group-hover:scale-105 group-hover:bg-accent-hover sm:h-20 sm:w-20">
+          <Play className="ml-1 h-7 w-7 fill-current sm:h-8 sm:w-8" />
         </span>
       </span>
     </button>

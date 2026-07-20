@@ -24,7 +24,7 @@ export const site = {
   name: "Rafael Pincus",
   nickname: "Rafi",
   oneLiner:
-    "Forward deployed engineer turning ambiguous problems into reliable products, integrations and AI systems.",
+    "Software engineer with five years at Suncorp. I turn messy problems into reliable products, integrations and AI systems.",
   location: "Sydney, Australia",
 } as const;
 
@@ -43,10 +43,10 @@ export const video: { id: string | null } = {
 
 export const hero = {
   kicker: "SOFTWARE ENGINEER · FORWARD DEPLOYED · SYDNEY",
-  heading: "I turn messy problems into reliable software.",
-  sub: "Five years shipping inside a regulated business at Suncorp. Now building full-stack products, third-party integrations and AI pipelines — from discovery and architecture through release.",
-  pillPrimary: "DISCOVERY → ARCHITECTURE → RELEASE",
-  pillSecondary: "iOS · FULL-STACK · AI",
+  heading: "I build AI-powered products end to end.",
+  sub: "Five years shipping iOS inside a regulated business at Suncorp. Now I build full-stack products, third-party integrations and AI pipelines, from the first conversation through to release.",
+  pillPrimary: "5 YRS iOS AT SUNCORP",
+  pillSecondary: "DISCOVERY · BUILD · RELEASE",
 } as const;
 
 export const pubThursdays = {
@@ -54,7 +54,12 @@ export const pubThursdays = {
   heading: "Pub Thursdays",
   status: "● LIVE ON THE APP STORE · APR 2026",
   body: "Pub Thursdays started as a fix for my own friend group: a weekly pub night that needed someone to remember whose turn it was to pick. The app handles the rotation, voting, ratings, leaderboards and reminders, and recommends new pubs based on what the group has loved. Behind it, an automated pipeline I built reads 500+ Sydney venue websites, uses AI to extract each pub's weekly specials, and routes anything uncertain to a human for approval. The result is a live deals catalog with no content team.",
+  demoKicker: "DEMO",
+  demoHeading: "See Pub Thursdays working end to end.",
+  demoBody:
+    "A five-minute walkthrough of the app, the deal pipeline and the human review loop behind it.",
   demoVideoTitle: "Pub Thursdays walkthrough, 5 minutes",
+  architectureKicker: "ARCHITECTURE / PIPELINE",
   liveCaptionPrefix: "● LIVE FROM PRODUCTION · FETCHED",
   pipelineImage: {
     src: "/pipeline_slide.svg",
@@ -95,22 +100,22 @@ export const bookkeeper = {
   kicker: "03 / IN PROGRESS",
   heading: "Bookkeeper",
   status: "● FULL-STACK SAAS · ACTIVE DEVELOPMENT",
-  body: "A bookkeeping product for solo operators who need a clear view of their business without becoming accounting-system experts. The visible product is deliberately simple; the hard work sits underneath, making accounting-data access reliable, keeping every tenant isolated and turning an external API into something a user can trust.",
+  body: "Bookkeeper is an app I am building for solo operators who want a clear view of their business without having to learn an enterprise accounting system. The product stays simple while the hard parts happen underneath: connecting to Xero reliably, keeping each customer's data isolated and making sure background work can recover when integrations fail.",
   details: [
     {
       label: "CUSTOMER PROBLEM",
       title: "Clarity before features",
-      body: "The product starts with a narrow job: help a solo operator connect their business, understand what needs attention and act without navigating an enterprise accounting suite.",
+      body: "The first job is simple: help a solo operator connect their business, see what needs attention and take action without getting lost in an enterprise accounting suite.",
     },
     {
       label: "INTEGRATION",
       title: "Xero, end to end",
-      body: "Built multi-tenant OAuth 2.0 with PKCE, encrypted token storage and refresh coordination, then verified the complete connection flow against Xero's live API.",
+      body: "I built the full Xero connection flow with OAuth 2.0 and PKCE, encrypted token storage and coordinated refreshes, then tested it against Xero's live API.",
     },
     {
       label: "RELIABILITY",
       title: "Safe by default",
-      body: "Tenant isolation lives in Postgres row-level security. Advisory locks prevent refresh races, while background jobs keep slow or failure-prone integration work out of the request path.",
+      body: "Postgres row-level security keeps every customer's data isolated. Advisory locks prevent token refresh races, and background jobs keep slow or unreliable integration work out of the request path.",
     },
   ] satisfies DetailItem[],
   techLine:
@@ -184,23 +189,23 @@ export const suncorp = {
 
 export const forwardDeployed = {
   kicker: "05 / FORWARD DEPLOYED",
-  heading: "Close to the problem. Accountable for the outcome.",
-  body: "The common thread in my work is not a particular stack. It is getting enough context to find the real constraint, translating it into a solution people can align around, and staying with the work until it is running reliably.",
+  heading: "Understand the problem. Stay for the outcome.",
+  body: "My work starts with understanding what someone is actually trying to do. I turn that into a plan people can align on, choose the right architecture and stay with it through release and production.",
   details: [
     {
       label: "DISCOVER",
       title: "Find the problem behind the request",
-      body: "Years of customer-facing technical discovery taught me to ask what someone is trying to achieve, surface the constraints and explain trade-offs without hiding behind jargon.",
+      body: "Before I write code, I ask what someone is trying to achieve, find the constraints and explain the trade-offs without hiding behind jargon.",
     },
     {
       label: "TRANSLATE",
       title: "Make ambiguity actionable",
-      body: "I have mapped business workflows into a prioritised roadmap, aligned iOS and Android on shared implementation patterns, and turned product requirements into release-ready architecture.",
+      body: "At Suncorp, I mapped business workflows into a prioritised roadmap, aligned iOS and Android on shared patterns and turned product requirements into software ready to release.",
     },
     {
       label: "DELIVER",
-      title: "Own the last mile",
-      body: "From Mastercard and telematics integrations to secure authentication and App Store releases, I stay involved through edge cases, rollout, production support and the final sign-off.",
+      title: "Stay through release",
+      body: "I have shipped Mastercard, telematics and secure authentication integrations, and stayed involved through edge cases, rollout, production support and App Store release.",
     },
   ] satisfies DetailItem[],
 } as const;

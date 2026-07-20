@@ -8,7 +8,7 @@
   <rect width="1600" height="900" fill="#FAFAF8"/>
 
   <!-- Header -->
-  <text x="80" y="84" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="19" letter-spacing="3" fill="#C2410C">PUB THURSDAYS — DEAL-INGESTION PIPELINE</text>
+  <text x="80" y="84" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="19" letter-spacing="3" fill="#C2410C">PUB THURSDAYS · DEAL-INGESTION PIPELINE</text>
   <text x="1520" y="84" text-anchor="end" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="17" letter-spacing="1.5" fill="#6B6E66">SUPABASE EDGE · DENO/TS · GEMINI 2.5 FLASH-LITE</text>
   <text x="80" y="146" font-family="ui-sans-serif, -apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="46" font-weight="500" letter-spacing="-1" fill="#161814">Deterministic first, LLM second, human last.</text>
   <line x1="80" y1="184" x2="1520" y2="184" stroke="#161814" stroke-width="2"/>
@@ -18,7 +18,7 @@
   <text x="116" y="284" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="19" letter-spacing="2.5" fill="#C2410C">STEP 01</text>
   <text x="116" y="330" font-family="ui-sans-serif, -apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="29" font-weight="600" fill="#161814">Deterministic first</text>
   <text x="116" y="384" font-family="ui-sans-serif, -apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="21" fill="#4A4D46">Scheduled fetch of each venue&#8217;s own</text>
-  <text x="116" y="414" font-family="ui-sans-serif, -apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="21" fill="#4A4D46">site + menu PDFs — 15 candidate paths</text>
+  <text x="116" y="414" font-family="ui-sans-serif, -apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="21" fill="#4A4D46">site + menu PDFs across 15 candidate paths</text>
   <text x="116" y="444" font-family="ui-sans-serif, -apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="21" fill="#4A4D46">(/whats-on, /specials, /menu&#8230;).</text>
   <text x="116" y="490" font-family="ui-sans-serif, -apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="21" fill="#4A4D46">SSRF-safe fetch, 12s timeouts, 8MB</text>
   <text x="116" y="520" font-family="ui-sans-serif, -apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="21" fill="#4A4D46">PDF cap. Day/price/time regex builds</text>
@@ -49,7 +49,7 @@
   <text x="1116" y="330" font-family="ui-sans-serif, -apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="29" font-weight="600" fill="#161814">Human in the loop</text>
   <text x="1116" y="384" font-family="ui-sans-serif, -apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="21" fill="#4A4D46">Confidence &lt; 0.85 routes to an in-app</text>
   <text x="1116" y="414" font-family="ui-sans-serif, -apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="21" fill="#4A4D46">review queue: approve / edit / reject.</text>
-  <text x="1116" y="460" font-family="ui-sans-serif, -apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="21" fill="#4A4D46">Only approved rows reach clients —</text>
+  <text x="1116" y="460" font-family="ui-sans-serif, -apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="21" fill="#4A4D46">Only approved rows reach clients.</text>
   <text x="1116" y="490" font-family="ui-sans-serif, -apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="21" fill="#4A4D46">Postgres RLS + SECURITY DEFINER</text>
   <text x="1116" y="520" font-family="ui-sans-serif, -apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="21" fill="#4A4D46">RPCs. Every deal carries provenance:</text>
   <text x="1116" y="550" font-family="ui-sans-serif, -apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="21" fill="#4A4D46">source URL + last-verified date,</text>
@@ -59,11 +59,11 @@
   <!-- Observability strip -->
   <line x1="80" y1="724" x2="1520" y2="724" stroke="#161814" stroke-width="2"/>
   <text x="80" y="768" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="18" letter-spacing="2.5" fill="#C2410C">OBSERVABILITY</text>
-  <text x="360" y="766" font-family="ui-sans-serif, -apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="21" fill="#4A4D46">Every run logged to a pipeline_runs table — status, rows,</text>
-  <text x="360" y="796" font-family="ui-sans-serif, -apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="21" fill="#4A4D46">duration, errors — across 6 scheduled edge functions.</text>
+  <text x="360" y="766" font-family="ui-sans-serif, -apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="21" fill="#4A4D46">Every run logs status, rows, duration and errors</text>
+  <text x="360" y="796" font-family="ui-sans-serif, -apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="21" fill="#4A4D46">to pipeline_runs across 6 scheduled edge functions.</text>
   <text x="1520" y="782" text-anchor="end" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="26" letter-spacing="1" fill="#1E7A4E">204 RUNS · 0 FAILED</text>
 
   <!-- Footer -->
-  <text x="80" y="856" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="15" letter-spacing="1.5" fill="#6B6E66">RAFAEL PINCUS — PUBTHURSDAYS.APP</text>
+  <text x="80" y="856" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="15" letter-spacing="1.5" fill="#6B6E66">RAFAEL PINCUS · PUBTHURSDAYS.APP</text>
   <text x="1520" y="856" text-anchor="end" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="15" letter-spacing="1.5" fill="#6B6E66">PRODUCTION DATA · JUL 2026</text>
 </svg>
