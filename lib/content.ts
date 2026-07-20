@@ -30,7 +30,8 @@ export const site = {
 
 export const links = {
   appStore: "https://apps.apple.com/au/app/pub-thursdays/id6760244735" as string | null,
-  resume: "/Rafael-Pincus-Resume.pdf",
+  resume: "/resume",
+  resumePdf: "/Rafael-Pincus-Resume.pdf",
   github: "https://github.com/rafipinc",
   linkedin: "https://www.linkedin.com/in/rafael-pincus-a85198194/",
   email: "rafi.pincus@gmail.com",
