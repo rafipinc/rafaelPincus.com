@@ -210,12 +210,3 @@ export const forwardDeployed = {
     },
   ] satisfies DetailItem[],
 } as const;
-
-export const contact = {
-  kicker: "07 / CONTACT",
-  heading:
-    "Looking for forward-deployed and solutions engineering roles at AI-native companies.",
-  body: "Five years at Suncorp taught me to build inside a regulated business and explain technical decisions to people who don't write code. Pub Thursdays is what that looks like when I own the whole thing: I built it, I demo it, and every number on this page comes from production. Happy to walk through any of it, or just to chat about what I could do for your team.",
-  emailCta: "GET IN TOUCH →",
-  linkedinLabel: "LINKEDIN",
-} as const;

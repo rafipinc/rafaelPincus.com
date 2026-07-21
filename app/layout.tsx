@@ -18,10 +18,10 @@ const description =
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://rafaelpincus.com"),
-  title: "Rafael Pincus | Forward Deployed Engineer",
+  title: "Rafael Pincus | Software Engineer",
   description,
   openGraph: {
-    title: "Rafael Pincus | Forward Deployed Engineer",
+    title: "Rafael Pincus | Software Engineer",
     description,
     url: "/",
     siteName: "Rafael Pincus",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Rafael Pincus | Forward Deployed Engineer",
+    title: "Rafael Pincus | Software Engineer",
     description,
   },
 };
