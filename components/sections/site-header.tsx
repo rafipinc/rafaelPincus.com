@@ -18,7 +18,7 @@ export function SiteHeader() {
         className="flex flex-wrap gap-x-5 gap-y-2 sm:gap-x-7"
       >
         <Link href={links.resume} className={navLinkClasses}>
-          RÉSUMÉ
+          RESUME
         </Link>
         <a href={links.github} className={navLinkClasses}>
           GITHUB

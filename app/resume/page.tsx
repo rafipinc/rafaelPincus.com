@@ -5,13 +5,13 @@ import { links, site } from "@/lib/content";
 import { resume } from "@/lib/resume";
 
 const description =
-  "Résumé of Rafael Pincus, forward deployed engineer in Sydney. Five years shipping production iOS at Suncorp, plus full-stack AI products like Pub Thursdays.";
+  "Resume of Rafael Pincus, forward deployed engineer in Sydney. Five years shipping production iOS at Suncorp, plus full-stack AI products like Pub Thursdays.";
 
 export const metadata: Metadata = {
-  title: "Résumé | Rafael Pincus",
+  title: "Resume | Rafael Pincus",
   description,
   openGraph: {
-    title: "Résumé | Rafael Pincus",
+    title: "Resume | Rafael Pincus",
     description,
     url: "/resume",
     siteName: "Rafael Pincus",
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Résumé | Rafael Pincus",
+    title: "Resume | Rafael Pincus",
     description,
   },
 };
@@ -31,11 +31,11 @@ export default function ResumePage() {
       <SiteHeader />
       <main>
         <section
-          aria-label="Résumé header"
+          aria-label="Resume header"
           className="border-b border-border pb-14 pt-16 sm:pb-16 sm:pt-20"
         >
           <p className="font-mono text-xs tracking-[0.06em] text-accent-warm">
-            RÉSUMÉ
+            RESUME
           </p>
           <h1 className="mt-7 text-balance text-[clamp(2.5rem,6vw,4.5rem)] font-medium leading-[1.02] tracking-[-0.03em] text-ink">
             {resume.name}
@@ -185,7 +185,7 @@ export default function ResumePage() {
         </SectionShell>
       </main>
       <footer
-        aria-label="Résumé footer"
+        aria-label="Resume footer"
         className="flex justify-between pb-10 pt-6 font-mono text-[11px] tracking-[0.04em] text-muted"
       >
         <span>{site.location.toUpperCase()}</span>
