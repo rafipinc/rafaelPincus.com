@@ -27,7 +27,7 @@ export const links = {
   resume: "/resume",
   resumePdf: "/Rafael-Pincus-Resume.pdf",
   github: "https://github.com/rafipinc",
-  linkedin: "https://www.linkedin.com/in/rafael-pincus-a85198194/",
+  linkedin: "https://www.linkedin.com/in/rafaelpincus/",
   email: "rafi.pincus@gmail.com",
 } as const;
 
