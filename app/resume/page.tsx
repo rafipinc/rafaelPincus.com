@@ -53,7 +53,6 @@ export default function ResumePage() {
                 {resume.contact.email.toUpperCase()}
               </a>
             </li>
-            <li>{resume.contact.phone}</li>
             <li>{resume.contact.site.toUpperCase()}</li>
           </ul>
           <div className="mt-10 flex flex-wrap gap-3.5 font-mono text-[13px] tracking-[0.04em]">
