@@ -19,7 +19,6 @@ All copy, stats, links, and video IDs live in `lib/content.ts`. Components only 
 
 - **Video ID:** set `video.id` in `lib/content.ts` to the YouTube ID of the 5-minute walkthrough. While it is null the facade shows a designed poster.
 - **App Store link:** set `links.appStore` to the real URL. Until then the CTA renders disabled with a "Link coming soon" title.
-- **Pipeline slide:** replace `public/pipeline_slide.svg` with the real slide, keeping the same filename (1600x900).
 
 ## Deploy
 

@@ -27,7 +27,7 @@ export const resume = {
     site: "rafaelpincus.com",
   },
   profile:
-    "Software engineer at Suncorp, one of Australia's largest financial services groups, with five years shipping production iOS apps, secure auth flows, vendor integrations and API-backed features for millions of customers. Strongest at turning ambiguous product or customer problems into architecture, implementation and release. Recently launched Pub Thursdays on the App Store, a full-stack SwiftUI app with Supabase and Gemini-backed extraction and search pipelines. I use Claude Code and GitHub Copilot daily while keeping ownership of code quality, testing, debugging and technical tradeoffs. Looking for a forward deployed or solutions engineering role where I can work close to users and ship reliable software quickly.",
+    "Software engineer with five years at Suncorp, shipping iOS apps, secure authentication and third-party integrations for millions of customers. I work best when the problem is still unclear: talking with users, shaping the approach and staying through release. I also built and launched Pub Thursdays, a full-stack SwiftUI app backed by Supabase and an AI-assisted deals pipeline. I'm looking for a forward deployed or solutions engineering role where I can stay close to users and ship useful, reliable software.",
   skills: [
     {
       label: "AI ENGINEERING",
@@ -47,7 +47,7 @@ export const resume = {
     {
       label: "TOOLS",
       items:
-        "Git / BitBucket, JIRA / Confluence, LaunchDarkly, Figma, Agile / Scrum, App Store Connect",
+        "Git / Bitbucket, Jira / Confluence, LaunchDarkly, Figma, Agile / Scrum, App Store Connect",
     },
   ] satisfies ResumeSkillGroup[],
   education: {
@@ -61,12 +61,10 @@ export const resume = {
       descriptor: "iOS App",
       status: "LIVE ON THE APP STORE",
       bullets: [
-        "Built and shipped a SwiftUI iPhone app for small social groups with recurring meetups, combining pub rotation, ratings, leaderboards, invites, votes and APNs reminders in one shared flow.",
-        "Built an app-owned catalog of 500+ Sydney venues and a deterministic-first deals pipeline using rule-based filtering, Gemini structured extraction, confidence scoring and human review.",
-        "Produced 580+ approved deals across 120+ venues at 0.93 average confidence, with natural-language search and AI-assisted venue tagging behind Supabase Edge Functions.",
-        "Ran scheduled Deno/TypeScript pipelines for catalog hydration, extraction and cleanup, with 220+ logged runs and zero failures as of July 2026.",
-        "Built a Clean Architecture/MVVM app and Supabase backend with Auth, Postgres, Realtime, Storage, RLS, RPCs, 100+ migrations and 300+ automated tests.",
-        "Owned the product end to end through UX, data modeling, implementation, integration testing, App Store release and production operations.",
+        "Built and launched Pub Thursdays, a SwiftUI app I made for my own weekly pub group. It handles picker rotation, voting, ratings, leaderboards, invites and reminders.",
+        "Built a catalogue of 500+ Sydney venues and a deals pipeline that checks venue websites, filters likely specials, uses Gemini for structured extraction and routes low-confidence results for review.",
+        "Published 580+ approved deals across 120+ venues at 0.93 average confidence. The scheduled Deno/TypeScript pipelines logged 220+ runs with zero failures as of July 2026.",
+        "Owned the iOS app, backend, UX, data modelling, testing, App Store release and production support across SwiftUI/MVVM, Supabase and 300+ automated tests.",
       ],
     },
   ] satisfies ResumeProject[],
@@ -76,13 +74,12 @@ export const resume = {
       company: "Suncorp Group, Sydney",
       dates: "Nov 2020 – Present",
       bullets: [
-        "Key contributor on the iOS side of Suncorp's ForgeRock migration, rebuilding core authentication flows in Swift around REST API-backed token handling, session state and secure error paths. Worked with security/platform teams through release; login calls to the contact centre dropped 25% after launch.",
-        "Led mobile delivery for Suncorp's highest-priority backend migration using Duck Creek as the source for insurance data. Defined the iOS solution, aligned iOS and Android on shared patterns, used LaunchDarkly for a controlled rollout, and coordinated API changes, data mapping, testing and release.",
-        "Drove the migration from legacy UIKit screens to SwiftUI and MVVM, creating reusable patterns the team could extend safely. Framed the case around release speed, maintainability and reduced implementation cost; feature delivery is now around 30% faster.",
-        "Shipped production iOS features from ambiguous requirements through implementation, testing and rollout, including Rewards Platform, EcoScore and Shannons. Self-service work in the service app contributed to contact-centre call rates falling by more than 50% over my tenure.",
-        "Integrated Mastercard, CMT telematics and Adobe Analytics SDKs and REST APIs end to end, including vendor coordination, API contract review, edge-case handling and production support. Defined the Adobe event schema product uses for data-backed decisions.",
-        "Use GitHub Copilot and AI tooling across the dev lifecycle to draft code, explore architecture, write technical docs and speed up implementation while keeping review, testing and debugging standards high.",
-        "Own the mobile release pipeline across Jenkins, Firebase, signing and App Store submissions. Manage build issues, dependencies and release comms so engineering work lands predictably and on time.",
+        "Helped rebuild Suncorp's core iOS authentication flows during the ForgeRock migration, covering token handling, session state and secure error paths. Worked with security and platform teams through release; login calls to the contact centre fell 25%.",
+        "Led mobile delivery for the Duck Creek insurance migration. Set the iOS approach, aligned shared patterns with Android and coordinated API changes, data mapping, testing and a LaunchDarkly rollout.",
+        "Moved legacy UIKit screens towards SwiftUI and MVVM with reusable patterns the team could extend. Feature delivery is now around 30% faster.",
+        "Shipped Rewards Platform, EcoScore, Shannons and other self-service features from requirements through rollout. This work contributed to contact-centre call rates falling by more than 50% over five years.",
+        "Integrated Mastercard, CMT telematics and Adobe Analytics across SDKs and REST APIs, including vendor coordination, contract review, edge cases and production support.",
+        "Owned the mobile release pipeline across Jenkins, Firebase, signing and App Store submissions, resolving build and dependency issues so releases landed predictably.",
       ],
     },
     {
@@ -90,9 +87,9 @@ export const resume = {
       company: "JB Hi-Fi, Melbourne",
       dates: "Dec 2019 – Jun 2024 (part-time)",
       bullets: [
-        "Ran customer-facing technical discovery every shift, separating the real problem from the requested product and translating needs into practical technical recommendations.",
-        "Consistently exceeded sales targets with a consultative approach, solving complex home-office, education and AV setups by matching constraints to the right hardware/software mix.",
-        "Built strong communication instincts for explaining technical tradeoffs clearly to non-technical customers, earning high CSAT and repeated formal positive feedback.",
+        "Worked with customers to understand the real problem and recommend a setup that fit their needs and budget.",
+        "Consistently beat sales targets across home-office, education and AV setups by matching practical constraints to the right hardware and software.",
+        "Earned high CSAT and repeated formal feedback for explaining technical choices clearly.",
       ],
     },
     {
@@ -100,9 +97,9 @@ export const resume = {
       company: "BT Corporate Advisory, Melbourne",
       dates: "Sep 2019 – Jul 2020",
       bullets: [
-        "Mapped the business's systems, workflows and pain points, then turned the findings into a prioritised technical roadmap leadership could act on.",
-        "Scoped and delivered a full website rebuild, managing requirements, implementation and launch so the site accurately reflected the business and was easier to maintain.",
-        "Implemented a Mailchimp email workflow to replace ad-hoc outreach, giving the team a repeatable system with tracking and better follow-up.",
+        "Mapped the company's systems, workflows and pain points, then turned the findings into a prioritised technical roadmap.",
+        "Scoped and delivered a full website rebuild from requirements through launch, making the site more accurate and easier to maintain.",
+        "Replaced ad-hoc outreach with a tracked Mailchimp workflow the team could reuse.",
       ],
     },
   ] satisfies ResumeRole[],

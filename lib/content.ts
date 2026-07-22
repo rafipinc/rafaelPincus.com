@@ -3,12 +3,6 @@ export type Metric = {
   label: string;
 };
 
-export type PipelineStage = {
-  step: string;
-  title: string;
-  body: string;
-};
-
 export type ExperienceItem = {
   stat: string;
   body: string;
@@ -24,7 +18,7 @@ export const site = {
   name: "Rafael Pincus",
   nickname: "Rafi",
   oneLiner:
-    "Software engineer with five years at Suncorp. I turn messy problems into reliable products, integrations and AI systems.",
+    "Software engineer in Sydney with five years shipping iOS at Suncorp. I build full-stack products, integrations and practical AI systems.",
   location: "Sydney, Australia",
 } as const;
 
@@ -43,80 +37,71 @@ export const video: { id: string | null } = {
 };
 
 export const hero = {
-  kicker: "SOFTWARE ENGINEER · FORWARD DEPLOYED · SYDNEY",
-  heading: "I build AI-powered products end to end.",
-  sub: "Five years shipping iOS inside a regulated business at Suncorp. Now I build full-stack products, third-party integrations and AI pipelines, from the first conversation through to release.",
-  pillPrimary: "5 YRS iOS AT SUNCORP",
-  pillSecondary: "DISCOVERY · BUILD · RELEASE",
+  kicker: "SOFTWARE ENGINEER · iOS, FULL STACK & AI · SYDNEY",
+  heading: "I build useful products, end to end.",
+  sub: "I've spent five years shipping iOS at Suncorp. I also built and launched my own app, including the backend, integrations and AI pipeline behind it.",
+  pillPrimary: "5 YEARS SHIPPING iOS",
+  pillSecondary: "FROM IDEA TO PRODUCTION",
 } as const;
 
 export const pubThursdays = {
-  kicker: "01 / FLAGSHIP",
+  kicker: "01 / BUILT & SHIPPED",
   heading: "Pub Thursdays",
   status: "● LIVE ON THE APP STORE · APR 2026",
-  body: "Pub Thursdays started as a fix for my own friend group: a weekly pub night that needed someone to remember whose turn it was to pick. The app handles the rotation, voting, ratings, leaderboards and reminders, and recommends new pubs based on what the group has loved. Behind it, an automated pipeline I built reads 500+ Sydney venue websites, uses AI to extract each pub's weekly specials, and routes anything uncertain to a human for approval. The result is a live deals catalog with no content team.",
+  body: "Pub Thursdays started because my friends and I needed a better way to run our weekly pub night. It tracks whose turn it is, keeps our ratings and history, and helps us find somewhere new. I also built a pipeline that checks 500+ Sydney venue websites, pulls out current deals with AI and sends anything uncertain to me for review.",
   demoKicker: "DEMO",
-  demoHeading: "See Pub Thursdays working end to end.",
+  demoHeading: "A quick look at how it works.",
   demoBody:
-    "A five-minute walkthrough of the app, the deal pipeline and the human review loop behind it.",
-  demoVideoTitle: "Pub Thursdays walkthrough, 5 minutes",
-  architectureKicker: "ARCHITECTURE / PIPELINE",
-  liveCaptionPrefix: "● LIVE FROM PRODUCTION · FETCHED",
-  pipelineImage: {
-    src: "/pipeline_slide.svg",
-    alt: "Architecture overview of the Pub Thursdays deal-ingestion pipeline: scheduled Edge Functions with rule-based filtering, then Gemini structured extraction with confidence scoring and dedupe, then a human review queue writing approved deals to Postgres with row-level security.",
-    width: 1600,
-    height: 900,
-  },
-  cta: "VIEW ON THE APP STORE →",
+    "I walk through the app, then show the pipeline that finds, checks and publishes pub deals.",
+  demoVideoTitle: "Pub Thursdays app and deals pipeline walkthrough",
+  architectureKicker: "HOW DEALS GET INTO THE APP",
+  architectureHeading:
+    "The pipeline handles the repetitive work. I keep the final say.",
+  architectureSteps: [
+    {
+      step: "01 · FIND",
+      title: "Start with the pub",
+      body: "The pipeline checks each pub's own website and menu PDFs for likely deals.",
+    },
+    {
+      step: "02 · STRUCTURE",
+      title: "Use AI where it helps",
+      body: "Rules narrow the page down, then Gemini turns the useful bits into structured deal data.",
+    },
+    {
+      step: "03 · REVIEW",
+      title: "Only publish what holds up",
+      body: "Anything below 85% confidence comes to me. Only approved deals go live, with the source attached.",
+    },
+  ],
+  architectureNote:
+    "Behind that, results are cached for 30 days, every published deal keeps its source and every pipeline run is logged.",
+  liveCaptionPrefix: "● PRODUCTION DATA · UPDATED",
+  cta: "OPEN IN THE APP STORE →",
   ctaPendingTitle: "Link coming soon",
   techLine: "SwiftUI · Supabase · Deno/TS · Gemini API",
 } as const;
 
-export const pipeline = {
-  kicker: "02 / PIPELINE",
-  heading: "Rules first, AI second, a human sign-off last.",
-  stages: [
-    {
-      step: "STEP 01",
-      title: "Start cheap and predictable",
-      body: "Scheduled jobs visit each pub's own website and menu PDFs, never third-party listings, which my testing showed can sit years out of date. Simple pattern-matching trims each page down to the handful of lines that look like deals, so most of the work costs nothing to run.",
-    },
-    {
-      step: "STEP 02",
-      title: "AI with guardrails",
-      body: "Google's Gemini model turns those snippets into structured deals: what it is, which day, what price, with a confidence score on every one. Duplicates are removed, one-off events are filtered out, and results are cached for 30 days so the AI is never called twice for the same venue.",
-    },
-    {
-      step: "STEP 03",
-      title: "A human has the final say",
-      body: "Anything the AI is less than 85% sure about is held back in a review queue inside the app, and only deals I approve ever reach users. Every published deal links back to its source and shows when it was last verified, so nothing stale or invented makes it to the app.",
-    },
-  ] satisfies PipelineStage[],
-  footnote:
-    "UNDER THE HOOD: DENO EDGE FUNCTIONS ON SUPABASE · SSRF-SAFE FETCHING · PROMPT-INJECTION DEFENCES · PER-USER RATE LIMITS · POSTGRES ROW-LEVEL SECURITY · EVERY RUN LOGGED · 100+ SQL MIGRATIONS · 300+ AUTOMATED TESTS",
-} as const;
-
 export const bookkeeper = {
-  kicker: "03 / IN PROGRESS",
+  kicker: "02 / IN PROGRESS",
   heading: "Bookkeeper",
-  status: "● FULL-STACK SAAS · ACTIVE DEVELOPMENT",
-  body: "Bookkeeper is an app I am building for solo operators who want a clear view of their business without having to learn an enterprise accounting system. The product stays simple while the hard parts happen underneath: connecting to Xero reliably, keeping each customer's data isolated and making sure background work can recover when integrations fail.",
+  status: "● WEB APP · IN DEVELOPMENT",
+  body: "Bookkeeper is a work in progress for solo operators who want to know what needs attention without learning a full accounting suite. I'm keeping the product simple while making the work behind it reliable: Xero sync, data isolation and background jobs that can recover when an integration fails.",
   details: [
     {
       label: "CUSTOMER PROBLEM",
-      title: "Clarity before features",
-      body: "The first job is simple: help a solo operator connect their business, see what needs attention and take action without getting lost in an enterprise accounting suite.",
+      title: "Show what needs attention",
+      body: "Connect the business, surface what matters and make the next action clear. That's the first problem I'm solving.",
     },
     {
-      label: "INTEGRATION",
-      title: "Xero, end to end",
-      body: "I built the full Xero connection flow with OAuth 2.0 and PKCE, encrypted token storage and coordinated refreshes, then tested it against Xero's live API.",
+      label: "XERO INTEGRATION",
+      title: "A proper Xero connection",
+      body: "The Xero integration uses OAuth 2.0 with PKCE, encrypted tokens and coordinated refreshes. I've tested the full flow against Xero's API.",
     },
     {
       label: "RELIABILITY",
-      title: "Safe by default",
-      body: "Postgres row-level security keeps every customer's data isolated. Advisory locks prevent token refresh races, and background jobs keep slow or unreliable integration work out of the request path.",
+      title: "Failures should be recoverable",
+      body: "Row-level security separates customer data. Locks prevent token-refresh races, while background jobs keep slow or unreliable integration work out of the request path.",
     },
   ] satisfies DetailItem[],
   techLine:
@@ -129,9 +114,9 @@ export type SkillGroup = {
 };
 
 export const skills = {
-  kicker: "06 / SKILLS",
-  heading: "Breadth, with a bias for the right tool.",
-  body: "The languages here are ones I've shipped production code in. The AI tools are my daily loop: I work in Claude Code, Codex, Gemini and Copilot every day, and I treat tokens like any other production cost, cached, routed to the cheapest capable model, and measured.",
+  kicker: "05 / SKILLS",
+  heading: "The tools I use to ship.",
+  body: "Swift and iOS are where I have the deepest production experience. I now work across TypeScript, backend systems and AI tooling as well. I use Claude Code, Codex, Gemini and Copilot daily. They help me move faster, but I still own the architecture, review, testing and final result.",
   groups: [
     {
       label: "AI TOOLING",
@@ -151,62 +136,62 @@ export const skills = {
     {
       label: "TOOLS & PRACTICE",
       items:
-        "Git · JIRA · Confluence · LaunchDarkly · Figma · Agile / Scrum · App Store Connect",
+        "Git · Jira · Confluence · LaunchDarkly · Figma · Agile / Scrum · App Store Connect",
     },
   ] satisfies SkillGroup[],
   metricsIntro:
-    "How I actually use AI, measured from my own Claude Code and Codex histories:",
+    "I use AI heavily, so I track the cost and efficiency rather than treating it as free:",
   metrics: [
-    { value: "177M", label: "CLAUDE TOKENS · SINCE JUN 2026" },
-    { value: "94.8%", label: "CLAUDE PROMPT-CACHE HIT RATE" },
-    { value: "5", label: "CLAUDE MODELS ROUTED BY TASK" },
-    { value: "1.0B", label: "CODEX TOKENS · SINCE OCT 2025" },
-    { value: "94.6%", label: "CODEX INPUT-CACHE REUSE" },
-    { value: "213", label: "CODEX AGENT RUNS · 110 DELEGATED" },
+    { value: "177M", label: "CLAUDE TOKENS USED · SINCE JUN 2026" },
+    { value: "94.8%", label: "CLAUDE CACHE HIT RATE" },
+    { value: "5", label: "CLAUDE MODELS USED" },
+    { value: "1.0B", label: "CODEX TOKENS USED · SINCE OCT 2025" },
+    { value: "94.6%", label: "CODEX INPUT CACHE REUSE" },
+    { value: "213", label: "CODEX RUNS · 110 DELEGATED" },
   ] satisfies Metric[],
   footnote:
-    "CACHE-WARM SESSIONS OVER COLD RESTARTS · CHEAPEST CAPABLE MODEL PER JOB · SUBAGENTS FOR PARALLEL WORK · AI KEYS SERVER-SIDE · SPEND CAPPED IN EVERY PIPELINE",
+    "MY DEFAULTS: REUSE CONTEXT · PICK THE CHEAPEST MODEL THAT CAN DO THE JOB · DELEGATE PARALLEL WORK · KEEP KEYS SERVER-SIDE · CAP SPEND",
 } as const;
 
 export const suncorp = {
-  kicker: "04 / ENTERPRISE",
+  kicker: "03 / ENTERPRISE",
   heading: "Suncorp",
   sub: "iOS ENGINEER · 5 YEARS",
   items: [
     {
       stat: "−25%",
-      body: "Key iOS contributor on the bank-grade login migration (ForgeRock). Login-related calls to the contact centre dropped 25% after launch.",
+      body: "I helped rebuild Suncorp's iOS login during the ForgeRock migration. Login-related calls to the contact centre fell 25% after release.",
     },
     {
       stat: "LEAD",
-      body: "Led the mobile front-end migration for Suncorp's highest-priority program, the Duck Creek insurance platform, defining shared patterns across iOS and Android.",
+      body: "I led the mobile frontend for the Duck Creek insurance migration, setting the iOS approach and aligning shared patterns with Android.",
     },
     {
       stat: "−50%",
-      body: "Shipped the self-service features that contributed to call-centre contact rates falling more than 50% over five years.",
+      body: "I shipped self-service features that helped cut contact-centre call rates by more than 50% over five years.",
     },
   ] satisfies ExperienceItem[],
 } as const;
 
 export const forwardDeployed = {
-  kicker: "05 / FORWARD DEPLOYED",
-  heading: "Understand the problem. Stay for the outcome.",
-  body: "My work starts with understanding what someone is actually trying to do. I turn that into a plan people can align on, choose the right architecture and stay with it through release and production.",
+  kicker: "04 / HOW I WORK",
+  heading: "Understand the problem, then stay until it works.",
+  body: "I like working close to the people using the product. I ask questions early, make the trade-offs clear and stay involved through the build, release and whatever turns up in production.",
   details: [
     {
-      label: "DISCOVER",
-      title: "Find the problem behind the request",
-      body: "Before I write code, I ask what someone is trying to achieve, find the constraints and explain the trade-offs without hiding behind jargon.",
+      label: "ASK",
+      title: "Ask before I build",
+      body: "I start with what someone is actually trying to achieve, what's getting in the way and what a good result looks like.",
     },
     {
-      label: "TRANSLATE",
-      title: "Make ambiguity actionable",
-      body: "At Suncorp, I mapped business workflows into a prioritised roadmap, aligned iOS and Android on shared patterns and turned product requirements into software ready to release.",
+      label: "PLAN",
+      title: "Turn it into a clear plan",
+      body: "I break the problem into work people can agree on, explain the trade-offs plainly and turn it into a plan I can build and others can follow.",
     },
     {
-      label: "DELIVER",
+      label: "SHIP",
       title: "Stay through release",
-      body: "I have shipped Mastercard, telematics and secure authentication integrations, and stayed involved through edge cases, rollout, production support and App Store release.",
+      body: "I stay involved through integrations, edge cases, rollout, App Store review and production support.",
     },
   ] satisfies DetailItem[],
 } as const;

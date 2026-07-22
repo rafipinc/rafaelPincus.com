@@ -27,6 +27,7 @@
 # local-only: video production assets and private planning docs
 /video-assets/
 /docs/
+/.local/
 
 # debug
 npm-debug.log*

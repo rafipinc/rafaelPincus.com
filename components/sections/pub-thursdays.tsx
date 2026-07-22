@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { SectionShell } from "@/components/sections/section-shell";
 import { YouTubeFacade } from "@/components/youtube-facade";
 import { links, pubThursdays, video } from "@/lib/content";
@@ -8,16 +7,20 @@ const ctaClasses =
   "border border-ink px-5 py-2.5 font-mono text-xs tracking-[0.04em] text-ink transition-colors duration-150 hover:bg-ink hover:text-background";
 
 export function PubThursdays({ stats }: { stats: LiveStats }) {
+  const failureLabel =
+    stats.failedRuns === 0
+      ? "NO FAILURES"
+      : `${stats.failedRuns} ${stats.failedRuns === 1 ? "FAILURE" : "FAILURES"}`;
   const metrics = [
     { value: String(stats.approvedDeals), label: "APPROVED DEALS" },
-    { value: String(stats.venuesCovered), label: "VENUES COVERED" },
+    { value: String(stats.venuesCovered), label: "PUBS WITH LIVE DEALS" },
     {
       value: String(stats.pipelineRuns),
-      label: `PIPELINE RUNS · ${stats.failedRuns} FAILED`,
+      label: `PIPELINE RUNS · ${failureLabel}`,
     },
     {
       value: stats.avgConfidence.toFixed(2),
-      label: "AVG AI CONFIDENCE (0–1)",
+      label: "AVERAGE EXTRACTION CONFIDENCE · 0–1",
     },
   ];
   const fetchedOn = stats.fetchedAt
@@ -97,14 +100,30 @@ export function PubThursdays({ stats }: { stats: LiveStats }) {
         <p className="font-mono text-[11px] tracking-[0.06em] text-accent-warm">
           {pubThursdays.architectureKicker}
         </p>
-        <Image
-          src={pubThursdays.pipelineImage.src}
-          alt={pubThursdays.pipelineImage.alt}
-          width={pubThursdays.pipelineImage.width}
-          height={pubThursdays.pipelineImage.height}
-          unoptimized
-          className="mt-4 h-auto w-full border border-border"
-        />
+        <h3 className="mt-4 max-w-[28ch] text-pretty text-2xl font-medium tracking-[-0.02em] text-ink sm:text-3xl">
+          {pubThursdays.architectureHeading}
+        </h3>
+        <ol className="mt-7 grid border-t border-ink sm:grid-cols-3">
+          {pubThursdays.architectureSteps.map((stage) => (
+            <li
+              key={stage.step}
+              className="border-b border-border py-6 sm:mr-6 sm:border-b-0 sm:border-r sm:pb-2 sm:pr-6 last:border-b-0 sm:last:mr-0 sm:last:border-r-0"
+            >
+              <p className="font-mono text-[11px] tracking-[0.06em] text-accent-warm">
+                {stage.step}
+              </p>
+              <h4 className="mt-3 text-[18px] font-medium tracking-[-0.01em] text-ink">
+                {stage.title}
+              </h4>
+              <p className="mt-2 text-pretty text-[14.5px] leading-relaxed">
+                {stage.body}
+              </p>
+            </li>
+          ))}
+        </ol>
+        <p className="mt-5 max-w-[62ch] text-pretty text-[14px] leading-relaxed text-muted">
+          {pubThursdays.architectureNote}
+        </p>
       </div>
 
       <div className="mt-8 flex flex-wrap items-center justify-between gap-4">

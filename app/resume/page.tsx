@@ -5,7 +5,7 @@ import { links, site } from "@/lib/content";
 import { resume } from "@/lib/resume";
 
 const description =
-  "Resume of Rafael Pincus, forward deployed engineer in Sydney. Five years shipping production iOS at Suncorp, plus full-stack AI products like Pub Thursdays.";
+  "Rafael Pincus is a Sydney software engineer with five years of iOS experience at Suncorp, plus full-stack product and AI pipeline work.";
 
 export const metadata: Metadata = {
   title: "Resume | Rafael Pincus",
@@ -68,7 +68,7 @@ export default function ResumePage() {
               href={`mailto:${links.email}`}
               className="border border-ink px-7 py-3.5 text-ink transition-colors duration-150 hover:bg-ink hover:text-background"
             >
-              GET IN TOUCH
+              EMAIL ME
             </a>
           </div>
         </section>
