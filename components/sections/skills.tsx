@@ -27,26 +27,8 @@ export function Skills() {
         ))}
       </dl>
 
-      <p className="mt-12 max-w-[62ch] text-pretty text-[14.5px] leading-relaxed text-muted">
-        {skills.metricsIntro}
-      </p>
-      <dl className="mt-5 grid grid-cols-1 border-l border-t border-t-ink border-l-border sm:grid-cols-3">
-        {skills.metrics.map((metric) => (
-          <div
-            key={metric.label}
-            className="border-b border-r border-border px-5 pb-7 pt-6"
-          >
-            <dd className="text-4xl font-medium tracking-[-0.02em] text-ink tabular-nums sm:text-[2.625rem]">
-              {metric.value}
-            </dd>
-            <dt className="mt-2 font-mono text-[11px] tracking-[0.05em] text-muted">
-              {metric.label}
-            </dt>
-          </div>
-        ))}
-      </dl>
-      <p className="mt-8 border-t border-border pt-5 font-mono text-[11px] leading-relaxed tracking-[0.05em] text-muted">
-        {skills.footnote}
+      <p className="mt-12 max-w-[62ch] border-t border-border pt-5 text-pretty text-[14.5px] leading-relaxed text-muted">
+        {skills.closing}
       </p>
     </SectionShell>
   );

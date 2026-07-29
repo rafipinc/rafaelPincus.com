@@ -15,7 +15,7 @@ const plexMono = IBM_Plex_Mono({
 });
 
 const description =
-  "Sydney software engineer with five years of iOS experience at Suncorp. I build full-stack products, integrations and practical AI systems.";
+  "Product-minded software engineer in Sydney with five years shipping at Suncorp. I build and operate mobile, web, backend and practical AI systems.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://rafaelpincus.com"),

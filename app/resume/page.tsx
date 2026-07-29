@@ -5,7 +5,7 @@ import { links, site } from "@/lib/content";
 import { resume } from "@/lib/resume";
 
 const description =
-  "Rafael Pincus is a Sydney software engineer with five years of iOS experience at Suncorp, plus full-stack product and AI pipeline work.";
+  "Product-minded software engineer in Sydney with five years at Suncorp and end-to-end ownership across mobile, web, backend and AI-assisted systems.";
 
 export const metadata: Metadata = {
   title: "Resume | Rafael Pincus",
@@ -54,6 +54,22 @@ export default function ResumePage() {
               </a>
             </li>
             <li>{resume.contact.site.toUpperCase()}</li>
+            <li>
+              <a
+                href={links.linkedin}
+                className="transition-colors duration-150 hover:text-accent-warm"
+              >
+                LINKEDIN
+              </a>
+            </li>
+            <li>
+              <a
+                href={links.github}
+                className="transition-colors duration-150 hover:text-accent-warm"
+              >
+                GITHUB
+              </a>
+            </li>
           </ul>
           <div className="mt-10 flex flex-wrap gap-3.5 font-mono text-[13px] tracking-[0.04em]">
             <a
@@ -81,83 +97,117 @@ export default function ResumePage() {
           </p>
         </SectionShell>
 
-        <SectionShell kicker="02 / SKILLS" labelledBy="resume-skills">
-          <h2 id="resume-skills" className="sr-only">
-            Skills
+        <SectionShell
+          kicker="02 / SUNCORP EXPERIENCE"
+          labelledBy="resume-suncorp"
+        >
+          <h2 id="resume-suncorp" className="sr-only">
+            Suncorp experience
           </h2>
-          <dl className="grid gap-x-10 gap-y-8 sm:grid-cols-2">
-            {resume.skills.map((group) => (
-              <div key={group.label}>
-                <dt className="font-mono text-xs tracking-[0.06em] text-muted">
-                  {group.label}
-                </dt>
-                <dd className="mt-3 text-[15px] leading-relaxed text-ink">
-                  {group.items}
-                </dd>
-              </div>
-            ))}
-          </dl>
-        </SectionShell>
-
-        <SectionShell kicker="03 / EDUCATION" labelledBy="resume-education">
-          <h2 id="resume-education" className="sr-only">
-            Education
-          </h2>
-          <div className="flex flex-col gap-1">
-            <p className="text-xl font-medium tracking-[-0.01em] text-ink">
-              {resume.education.degree}
+          <article>
+            <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
+              <h3 className="text-xl font-medium tracking-[-0.01em] text-ink">
+                {resume.suncorp.title}
+              </h3>
+              <p className="font-mono text-xs tracking-[0.04em] text-muted">
+                {resume.suncorp.dates.toUpperCase()}
+              </p>
+            </div>
+            <p className="mt-1 text-[15px] text-muted">
+              {resume.suncorp.company}
             </p>
-            <p className="text-[15px]">{resume.education.school}</p>
-            <p className="mt-1 font-mono text-xs tracking-[0.04em] text-muted">
-              {resume.education.dates.toUpperCase()}
-            </p>
-          </div>
+            <ul className="mt-5 flex max-w-[72ch] flex-col gap-3.5">
+              {resume.suncorp.bullets.map((bullet) => (
+                <li
+                  key={bullet}
+                  className="border-l-2 border-border pl-4 text-[15px] leading-relaxed"
+                >
+                  {bullet}
+                </li>
+              ))}
+            </ul>
+          </article>
         </SectionShell>
 
-        <SectionShell kicker="04 / PROJECTS" labelledBy="resume-projects">
-          <h2 id="resume-projects" className="sr-only">
-            Projects
+        <SectionShell
+          kicker="03 / PUB THURSDAYS"
+          labelledBy="resume-pub-thursdays"
+        >
+          <h2 id="resume-pub-thursdays" className="sr-only">
+            Pub Thursdays
           </h2>
-          {resume.projects.map((project) => (
-            <article key={project.name}>
-              <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
-                <h3 className="text-xl font-medium tracking-[-0.01em] text-ink">
-                  {project.name}
-                  <span className="text-muted"> · {project.descriptor}</span>
-                </h3>
-                {links.appStore ? (
-                  <a
-                    href={links.appStore}
-                    className="font-mono text-xs tracking-[0.04em] text-accent transition-colors duration-150 hover:text-accent-hover"
-                  >
-                    ● {project.status}
-                  </a>
-                ) : (
-                  <span className="font-mono text-xs tracking-[0.04em] text-accent">
-                    ● {project.status}
-                  </span>
-                )}
-              </div>
-              <ul className="mt-5 flex max-w-[72ch] flex-col gap-3.5">
-                {project.bullets.map((bullet) => (
-                  <li
-                    key={bullet}
-                    className="border-l-2 border-border pl-4 text-[15px] leading-relaxed"
-                  >
-                    {bullet}
-                  </li>
-                ))}
-              </ul>
-            </article>
-          ))}
+          <article>
+            <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
+              <h3 className="text-xl font-medium tracking-[-0.01em] text-ink">
+                {resume.pubThursdays.name}
+              </h3>
+              {links.appStore ? (
+                <a
+                  href={links.appStore}
+                  className="font-mono text-xs tracking-[0.04em] text-accent transition-colors duration-150 hover:text-accent-hover"
+                >
+                  ● {resume.pubThursdays.status}
+                </a>
+              ) : (
+                <span className="font-mono text-xs tracking-[0.04em] text-accent">
+                  ● {resume.pubThursdays.status}
+                </span>
+              )}
+            </div>
+            <p className="mt-2 font-mono text-xs leading-relaxed tracking-[0.02em] text-muted">
+              {resume.pubThursdays.tech}
+            </p>
+            <ul className="mt-5 flex max-w-[72ch] flex-col gap-3.5">
+              {resume.pubThursdays.bullets.map((bullet) => (
+                <li
+                  key={bullet}
+                  className="border-l-2 border-border pl-4 text-[15px] leading-relaxed"
+                >
+                  {bullet}
+                </li>
+              ))}
+            </ul>
+          </article>
         </SectionShell>
 
-        <SectionShell kicker="05 / EXPERIENCE" labelledBy="resume-experience">
-          <h2 id="resume-experience" className="sr-only">
-            Experience
+        <SectionShell kicker="04 / BOOKKEEPER" labelledBy="resume-bookkeeper">
+          <h2 id="resume-bookkeeper" className="sr-only">
+            Bookkeeper
+          </h2>
+          <article>
+            <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
+              <h3 className="text-xl font-medium tracking-[-0.01em] text-ink">
+                {resume.bookkeeper.name}
+              </h3>
+              <span className="font-mono text-xs tracking-[0.04em] text-accent">
+                ● {resume.bookkeeper.status}
+              </span>
+            </div>
+            <p className="mt-2 font-mono text-xs leading-relaxed tracking-[0.02em] text-muted">
+              {resume.bookkeeper.tech}
+            </p>
+            <ul className="mt-5 flex max-w-[72ch] flex-col gap-3.5">
+              {resume.bookkeeper.bullets.map((bullet) => (
+                <li
+                  key={bullet}
+                  className="border-l-2 border-border pl-4 text-[15px] leading-relaxed"
+                >
+                  {bullet}
+                </li>
+              ))}
+            </ul>
+          </article>
+        </SectionShell>
+
+        <SectionShell
+          kicker="05 / ADDITIONAL EXPERIENCE"
+          labelledBy="resume-additional-experience"
+        >
+          <h2 id="resume-additional-experience" className="sr-only">
+            Additional experience
           </h2>
           <div className="flex flex-col gap-14">
-            {resume.experience.map((role) => (
+            {resume.additionalExperience.map((role) => (
               <article key={`${role.title}-${role.company}`}>
                 <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
                   <h3 className="text-xl font-medium tracking-[-0.01em] text-ink">
@@ -180,6 +230,42 @@ export default function ResumePage() {
                 </ul>
               </article>
             ))}
+          </div>
+        </SectionShell>
+
+        <SectionShell
+          kicker="06 / TECHNICAL TOOLKIT"
+          labelledBy="resume-technical-toolkit"
+        >
+          <h2 id="resume-technical-toolkit" className="sr-only">
+            Technical toolkit
+          </h2>
+          <dl className="grid gap-x-10 gap-y-8 sm:grid-cols-2">
+            {resume.technicalToolkit.map((group) => (
+              <div key={group.label}>
+                <dt className="font-mono text-xs tracking-[0.06em] text-muted">
+                  {group.label}
+                </dt>
+                <dd className="mt-3 text-[15px] leading-relaxed text-ink">
+                  {group.items}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </SectionShell>
+
+        <SectionShell kicker="07 / EDUCATION" labelledBy="resume-education">
+          <h2 id="resume-education" className="sr-only">
+            Education
+          </h2>
+          <div className="flex flex-col gap-1">
+            <p className="text-xl font-medium tracking-[-0.01em] text-ink">
+              {resume.education.degree}
+            </p>
+            <p className="text-[15px]">{resume.education.school}</p>
+            <p className="mt-1 font-mono text-xs tracking-[0.04em] text-muted">
+              {resume.education.dates.toUpperCase()}
+            </p>
           </div>
         </SectionShell>
       </main>
