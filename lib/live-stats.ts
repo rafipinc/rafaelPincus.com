@@ -10,16 +10,16 @@ export type LiveStats = {
   fetchedAt: string | null;
 };
 
-// Last-known-good production numbers (20 Jul 2026). Served whenever the
+// Last-known-good production numbers (7 Sep 2026). Served whenever the
 // live fetch is unavailable so the page never breaks or blocks a build.
 const FALLBACK: LiveStats = {
-  approvedDeals: 582,
-  venuesCovered: 124,
-  dealsExtracted: 661,
-  pipelineRuns: 221,
-  failedRuns: 0,
-  avgConfidence: 0.93,
-  venuesTracked: 507,
+  approvedDeals: 1232,
+  venuesCovered: 280,
+  dealsExtracted: 1232,
+  pipelineRuns: 672,
+  failedRuns: 30,
+  avgConfidence: 0.99,
+  venuesTracked: 506,
   live: false,
   fetchedAt: null,
 };

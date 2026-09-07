@@ -5,7 +5,7 @@ import { links, site } from "@/lib/content";
 import { resume } from "@/lib/resume";
 
 const description =
-  "Product-minded software engineer in Sydney with five years at Suncorp and end-to-end ownership across mobile, web, backend and AI-assisted systems.";
+  "Software engineer in Sydney with five years of technical delivery across enterprise integrations, full-stack systems, production triage and applied AI.";
 
 export const metadata: Metadata = {
   title: "Resume | Rafael Pincus",

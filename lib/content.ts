@@ -13,7 +13,7 @@ export const site = {
   name: "Rafael Pincus",
   nickname: "Rafi",
   oneLiner:
-    "Product-minded software engineer in Sydney with five years shipping at Suncorp. I build and operate mobile, web, backend and practical AI systems.",
+    "Software engineer in Sydney with five years at Suncorp. I turn complicated enterprise problems into production systems across integrations, full stack and applied AI.",
   location: "Sydney, Australia",
 } as const;
 
@@ -32,9 +32,10 @@ export const video: { id: string | null } = {
 };
 
 export const hero = {
-  kicker: "PRODUCT ENGINEER · MOBILE, FULL STACK & AI · SYDNEY",
-  heading: "I build and operate products, end to end.",
-  sub: "I've spent five years shipping production software at Suncorp. I also built and launched my own app, including the mobile client, backend, integrations and AI-assisted pipeline behind it.",
+  kicker:
+    "SOFTWARE ENGINEER · TECHNICAL DELIVERY, ENTERPRISE INTEGRATIONS & APPLIED AI · SYDNEY",
+  heading: "I turn complicated production problems into systems that work.",
+  sub: "I've spent five years at Suncorp working across product, design, security, platform and vendor teams. I trace failures across system boundaries, turn unclear requirements into delivery plans and stay involved through production. I also build full-stack products and practical AI systems independently.",
   pillPrimary: "5 YEARS IN PRODUCTION",
   pillSecondary: "FROM MESSY PROBLEM TO LIVE PRODUCT",
 } as const;
@@ -126,12 +127,12 @@ export const skills = {
     {
       label: "AI-ASSISTED SYSTEMS",
       items:
-        "Gemini API · structured extraction · deterministic pre-filtering · confidence gating · provenance · human review · production safeguards",
+        "LLM pipelines · AI-assisted log analysis · structured extraction · deterministic pre-filtering · confidence gating · provenance · human review · production safeguards",
     },
     {
       label: "DELIVERY & TOOLS",
       items:
-        "Claude Code · OpenAI Codex · GitHub Copilot · Git · LaunchDarkly · Jenkins · Firebase · Figma · App Store Connect",
+        "Technical discovery · solution scoping · production triage · API contract review · stakeholder communication · controlled rollout · Claude Code · OpenAI Codex · Git · LaunchDarkly · Jenkins · Firebase · Figma · App Store Connect",
     },
   ] satisfies SkillGroup[],
   closing:
@@ -144,11 +145,15 @@ export const suncorp = {
   sub: "SOFTWARE ENGINEER · 5 YEARS",
   items: [
     {
+      stat: "TRIAGE",
+      body: "I own release defect triage for Suncorp's mobile app, tracing failures across mobile, web and downstream services. I built an AI-assisted log-analysis agent that turns application logs into a clear diagnosis and helps the right team know where to investigate next.",
+    },
+    {
       stat: "−25%",
       body: "I helped rebuild Suncorp's iOS login during the ForgeRock migration. Login-related calls to the contact centre fell 25% after release.",
     },
     {
-      stat: "LEAD",
+      stat: "DELIVERY",
       body: "I led the mobile frontend for the Duck Creek insurance migration, setting the iOS approach and aligning shared patterns with Android.",
     },
     {
@@ -161,7 +166,7 @@ export const suncorp = {
 export const forwardDeployed = {
   kicker: "04 / HOW I WORK",
   heading: "Understand the problem, then stay until it works.",
-  body: "I like working close to the problem and the people using the product. I ask questions early, make the trade-offs clear and stay involved through the build, release and whatever turns up in production.",
+  body: "I like working close to the problem and the people affected by it. I ask questions early, make the trade-offs clear and stay involved through the build, release and whatever turns up in production.",
   details: [
     {
       label: "ASK",
@@ -171,12 +176,12 @@ export const forwardDeployed = {
     {
       label: "PLAN",
       title: "Make the trade-offs clear",
-      body: "I break the problem into work people can agree on, explain the choices plainly and leave a path I can build and others can follow.",
+      body: "I turn unclear requirements into a scoped plan, explain the choices plainly and keep the work moving against the timeline.",
     },
     {
       label: "SHIP",
       title: "Stay through release",
-      body: "I stay involved through integrations, edge cases, rollout, App Store review and production support.",
+      body: "I stay involved through integrations, edge cases, rollout and production support. When something breaks across system boundaries, I trace the evidence and bring the right teams together.",
     },
   ] satisfies DetailItem[],
 } as const;
