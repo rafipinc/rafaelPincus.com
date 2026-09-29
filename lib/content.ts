@@ -13,7 +13,7 @@ export const site = {
   name: "Rafael Pincus",
   nickname: "Rafi",
   oneLiner:
-    "Software engineer in Sydney with five years at Suncorp. I turn complicated enterprise problems into production systems across integrations, full stack and applied AI.",
+    "Senior software engineer in Sydney with five years at Suncorp. I turn complicated enterprise problems into production systems across integrations, full stack and applied AI.",
   location: "Sydney, Australia",
 } as const;
 
@@ -33,7 +33,7 @@ export const video: { id: string | null } = {
 
 export const hero = {
   kicker:
-    "SOFTWARE ENGINEER · TECHNICAL DELIVERY, ENTERPRISE INTEGRATIONS & APPLIED AI · SYDNEY",
+    "SENIOR SOFTWARE ENGINEER · TECHNICAL DELIVERY, ENTERPRISE INTEGRATIONS & APPLIED AI · SYDNEY",
   heading: "I turn complicated production problems into systems that work.",
   sub: "I've spent five years at Suncorp working across product, design, security, platform and vendor teams. I trace failures across system boundaries, turn unclear requirements into delivery plans and stay involved through production. I also build full-stack products and practical AI systems independently.",
   pillPrimary: "5 YEARS IN PRODUCTION",
@@ -142,7 +142,7 @@ export const skills = {
 export const suncorp = {
   kicker: "03 / ENTERPRISE",
   heading: "Suncorp",
-  sub: "SOFTWARE ENGINEER · 5 YEARS",
+  sub: "SENIOR SOFTWARE ENGINEER · 5 YEARS",
   items: [
     {
       stat: "TRIAGE",

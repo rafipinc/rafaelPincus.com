@@ -15,14 +15,14 @@ const plexMono = IBM_Plex_Mono({
 });
 
 const description =
-  "Software engineer in Sydney with five years at Suncorp, turning complicated enterprise problems into production systems across integrations, full stack and applied AI.";
+  "Senior software engineer in Sydney with five years at Suncorp, turning complicated enterprise problems into production systems across integrations, full stack and applied AI.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://rafaelpincus.com"),
-  title: "Rafael Pincus | Software Engineer",
+  title: "Rafael Pincus | Senior Software Engineer",
   description,
   openGraph: {
-    title: "Rafael Pincus | Software Engineer",
+    title: "Rafael Pincus | Senior Software Engineer",
     description,
     url: "/",
     siteName: "Rafael Pincus",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Rafael Pincus | Software Engineer",
+    title: "Rafael Pincus | Senior Software Engineer",
     description,
   },
 };

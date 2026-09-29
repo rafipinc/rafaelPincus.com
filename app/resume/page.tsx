@@ -5,7 +5,7 @@ import { links, site } from "@/lib/content";
 import { resume } from "@/lib/resume";
 
 const description =
-  "Software engineer in Sydney with five years of technical delivery across enterprise integrations, full-stack systems, production triage and applied AI.";
+  "Senior software engineer in Sydney with five years of technical delivery across enterprise integrations, full-stack systems, production triage and applied AI.";
 
 export const metadata: Metadata = {
   title: "Resume | Rafael Pincus",
@@ -130,84 +130,63 @@ export default function ResumePage() {
         </SectionShell>
 
         <SectionShell
-          kicker="03 / PUB THURSDAYS"
-          labelledBy="resume-pub-thursdays"
+          kicker="03 / SELECTED PRODUCTS"
+          labelledBy="resume-selected-products"
         >
-          <h2 id="resume-pub-thursdays" className="sr-only">
-            Pub Thursdays
+          <h2 id="resume-selected-products" className="sr-only">
+            Selected products
           </h2>
-          <article>
-            <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
-              <h3 className="text-xl font-medium tracking-[-0.01em] text-ink">
-                {resume.pubThursdays.name}
-              </h3>
-              {links.appStore ? (
-                <a
-                  href={links.appStore}
-                  className="font-mono text-xs tracking-[0.04em] text-accent transition-colors duration-150 hover:text-accent-hover"
-                >
-                  ● {resume.pubThursdays.status}
-                </a>
-              ) : (
-                <span className="font-mono text-xs tracking-[0.04em] text-accent">
-                  ● {resume.pubThursdays.status}
-                </span>
-              )}
-            </div>
-            <p className="mt-2 font-mono text-xs leading-relaxed tracking-[0.02em] text-muted">
-              {resume.pubThursdays.tech}
-            </p>
-            <ul className="mt-5 flex max-w-[72ch] flex-col gap-3.5">
-              {resume.pubThursdays.bullets.map((bullet) => (
-                <li
-                  key={bullet}
-                  className="border-l-2 border-border pl-4 text-[15px] leading-relaxed"
-                >
-                  {bullet}
-                </li>
-              ))}
-            </ul>
-          </article>
-        </SectionShell>
-
-        <SectionShell kicker="04 / BOOKKEEPER" labelledBy="resume-bookkeeper">
-          <h2 id="resume-bookkeeper" className="sr-only">
-            Bookkeeper
-          </h2>
-          <article>
-            <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
-              <h3 className="text-xl font-medium tracking-[-0.01em] text-ink">
-                {resume.bookkeeper.name}
-              </h3>
-              <span className="font-mono text-xs tracking-[0.04em] text-accent">
-                ● {resume.bookkeeper.status}
-              </span>
-            </div>
-            <p className="mt-2 font-mono text-xs leading-relaxed tracking-[0.02em] text-muted">
-              {resume.bookkeeper.tech}
-            </p>
-            <ul className="mt-5 flex max-w-[72ch] flex-col gap-3.5">
-              {resume.bookkeeper.bullets.map((bullet) => (
-                <li
-                  key={bullet}
-                  className="border-l-2 border-border pl-4 text-[15px] leading-relaxed"
-                >
-                  {bullet}
-                </li>
-              ))}
-            </ul>
-          </article>
+          <div className="flex flex-col gap-14">
+            {[resume.pubThursdays, resume.bookkeeper].map((project) => (
+              <article key={project.name}>
+                <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
+                  <h3 className="text-xl font-medium tracking-[-0.01em] text-ink">
+                    {project.name}
+                  </h3>
+                  {project.name === resume.pubThursdays.name &&
+                  links.appStore ? (
+                    <a
+                      href={links.appStore}
+                      className="font-mono text-xs tracking-[0.04em] text-accent transition-colors duration-150 hover:text-accent-hover"
+                    >
+                      {project.status}
+                    </a>
+                  ) : (
+                    <span className="font-mono text-xs tracking-[0.04em] text-accent">
+                      {project.status}
+                    </span>
+                  )}
+                </div>
+                <p className="mt-1 text-[15px] text-muted">
+                  {project.descriptor}
+                </p>
+                <p className="mt-2 font-mono text-xs leading-relaxed tracking-[0.02em] text-muted">
+                  {project.tech}
+                </p>
+                <ul className="mt-5 flex max-w-[72ch] flex-col gap-3.5">
+                  {project.bullets.map((bullet) => (
+                    <li
+                      key={bullet}
+                      className="border-l-2 border-border pl-4 text-[15px] leading-relaxed"
+                    >
+                      {bullet}
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            ))}
+          </div>
         </SectionShell>
 
         <SectionShell
-          kicker="05 / ADDITIONAL EXPERIENCE"
-          labelledBy="resume-additional-experience"
+          kicker="04 / CUSTOMER-FACING EXPERIENCE"
+          labelledBy="resume-customer-facing-experience"
         >
-          <h2 id="resume-additional-experience" className="sr-only">
-            Additional experience
+          <h2 id="resume-customer-facing-experience" className="sr-only">
+            Customer-facing experience
           </h2>
           <div className="flex flex-col gap-14">
-            {resume.additionalExperience.map((role) => (
+            {resume.customerFacingExperience.map((role) => (
               <article key={`${role.title}-${role.company}`}>
                 <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
                   <h3 className="text-xl font-medium tracking-[-0.01em] text-ink">
@@ -234,7 +213,7 @@ export default function ResumePage() {
         </SectionShell>
 
         <SectionShell
-          kicker="06 / TECHNICAL TOOLKIT"
+          kicker="05 / TECHNICAL TOOLKIT"
           labelledBy="resume-technical-toolkit"
         >
           <h2 id="resume-technical-toolkit" className="sr-only">
@@ -254,7 +233,7 @@ export default function ResumePage() {
           </dl>
         </SectionShell>
 
-        <SectionShell kicker="07 / EDUCATION" labelledBy="resume-education">
+        <SectionShell kicker="06 / EDUCATION" labelledBy="resume-education">
           <h2 id="resume-education" className="sr-only">
             Education
           </h2>
