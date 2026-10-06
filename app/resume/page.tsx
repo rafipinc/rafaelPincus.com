@@ -5,7 +5,7 @@ import { links, site } from "@/lib/content";
 import { resume } from "@/lib/resume";
 
 const description =
-  "Senior software engineer in Sydney with five years of technical delivery across enterprise integrations, full-stack systems, production triage and applied AI.";
+  "Senior Software Engineer in Sydney with nearly six years at Suncorp, shipping iOS, full-stack and AI-assisted systems for millions of customers.";
 
 export const metadata: Metadata = {
   title: "Resume | Rafael Pincus",
@@ -105,15 +105,22 @@ export default function ResumePage() {
             Suncorp experience
           </h2>
           <article>
-            <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
-              <h3 className="text-xl font-medium tracking-[-0.01em] text-ink">
-                {resume.suncorp.title}
-              </h3>
-              <p className="font-mono text-xs tracking-[0.04em] text-muted">
-                {resume.suncorp.dates.toUpperCase()}
-              </p>
-            </div>
-            <p className="mt-1 text-[15px] text-muted">
+            <ol className="flex flex-col gap-1.5">
+              {resume.suncorp.titles.map((entry) => (
+                <li
+                  key={entry.title}
+                  className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1"
+                >
+                  <h3 className="text-xl font-medium tracking-[-0.01em] text-ink">
+                    {entry.title}
+                  </h3>
+                  <p className="font-mono text-xs tracking-[0.04em] text-muted">
+                    {entry.dates.toUpperCase()}
+                  </p>
+                </li>
+              ))}
+            </ol>
+            <p className="mt-2 text-[15px] text-muted">
               {resume.suncorp.company}
             </p>
             <ul className="mt-5 flex max-w-[72ch] flex-col gap-3.5">
@@ -137,7 +144,7 @@ export default function ResumePage() {
             Selected products
           </h2>
           <div className="flex flex-col gap-14">
-            {[resume.pubThursdays, resume.bookkeeper].map((project) => (
+            {[resume.pubThursdays].map((project) => (
               <article key={project.name}>
                 <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
                   <h3 className="text-xl font-medium tracking-[-0.01em] text-ink">
@@ -179,14 +186,14 @@ export default function ResumePage() {
         </SectionShell>
 
         <SectionShell
-          kicker="04 / CUSTOMER-FACING EXPERIENCE"
-          labelledBy="resume-customer-facing-experience"
+          kicker="04 / EARLIER EXPERIENCE"
+          labelledBy="resume-earlier-experience"
         >
-          <h2 id="resume-customer-facing-experience" className="sr-only">
-            Customer-facing experience
+          <h2 id="resume-earlier-experience" className="sr-only">
+            Earlier experience
           </h2>
           <div className="flex flex-col gap-14">
-            {resume.customerFacingExperience.map((role) => (
+            {resume.earlierExperience.map((role) => (
               <article key={`${role.title}-${role.company}`}>
                 <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
                   <h3 className="text-xl font-medium tracking-[-0.01em] text-ink">
@@ -213,14 +220,14 @@ export default function ResumePage() {
         </SectionShell>
 
         <SectionShell
-          kicker="05 / TECHNICAL TOOLKIT"
-          labelledBy="resume-technical-toolkit"
+          kicker="05 / SKILLS"
+          labelledBy="resume-skills"
         >
-          <h2 id="resume-technical-toolkit" className="sr-only">
-            Technical toolkit
+          <h2 id="resume-skills" className="sr-only">
+            Skills
           </h2>
           <dl className="grid gap-x-10 gap-y-8 sm:grid-cols-2">
-            {resume.technicalToolkit.map((group) => (
+            {resume.skills.map((group) => (
               <div key={group.label}>
                 <dt className="font-mono text-xs tracking-[0.06em] text-muted">
                   {group.label}

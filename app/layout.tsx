@@ -15,7 +15,7 @@ const plexMono = IBM_Plex_Mono({
 });
 
 const description =
-  "Senior software engineer in Sydney with five years at Suncorp, turning complicated enterprise problems into production systems across integrations, full stack and applied AI.";
+  "Senior software engineer in Sydney with nearly six years at Suncorp, turning complicated enterprise problems into production systems across integrations, full stack and applied AI.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://rafaelpincus.com"),

@@ -13,7 +13,7 @@ export const site = {
   name: "Rafael Pincus",
   nickname: "Rafi",
   oneLiner:
-    "Senior software engineer in Sydney with five years at Suncorp. I turn complicated enterprise problems into production systems across integrations, full stack and applied AI.",
+    "Senior software engineer in Sydney with nearly six years at Suncorp. I turn complicated enterprise problems into production systems across integrations, full stack and applied AI.",
   location: "Sydney, Australia",
 } as const;
 
@@ -33,10 +33,10 @@ export const video: { id: string | null } = {
 
 export const hero = {
   kicker:
-    "SENIOR SOFTWARE ENGINEER · TECHNICAL DELIVERY, ENTERPRISE INTEGRATIONS & APPLIED AI · SYDNEY",
-  heading: "I turn complicated production problems into systems that work.",
-  sub: "I've spent five years at Suncorp working across product, design, security, platform and vendor teams. I trace failures across system boundaries, turn unclear requirements into delivery plans and stay involved through production. I also build full-stack products and practical AI systems independently.",
-  pillPrimary: "5 YEARS IN PRODUCTION",
+    "SENIOR SOFTWARE ENGINEER · iOS, FULL STACK & AI · SYDNEY",
+  heading: "Senior software engineer with deep mobile expertise and a collaborative way of working.",
+  sub: "I've spent nearly six years at Suncorp working across product, design, security, platform and vendor teams. I trace failures across system boundaries, turn unclear requirements into delivery plans and stay involved through production. I also build full-stack products and practical AI systems independently.",
+  pillPrimary: "SENIOR ENGINEER · 6 YEARS AT SUNCORP",
   pillSecondary: "FROM MESSY PROBLEM TO LIVE PRODUCT",
 } as const;
 
@@ -78,39 +78,13 @@ export const pubThursdays = {
   techLine: "SwiftUI · Supabase · Deno/TS · Gemini API",
 } as const;
 
-export const bookkeeper = {
-  kicker: "02 / IN PROGRESS",
-  heading: "Bookkeeper",
-  status: "● WEB APP · IN DEVELOPMENT",
-  body: "Bookkeeper is a work in progress for solo operators who want to know what needs attention without learning a full accounting suite. The product stays simple. The work behind it does not: Xero sync, customer-data isolation, coordinated token refresh and background jobs that can recover when an integration fails.",
-  details: [
-    {
-      label: "CUSTOMER PROBLEM",
-      title: "Show what needs attention",
-      body: "Connect the business, surface what matters and make the next action clear. That's the first problem I'm solving.",
-    },
-    {
-      label: "XERO INTEGRATION",
-      title: "A proper Xero connection",
-      body: "The Xero integration uses OAuth 2.0 with PKCE, encrypted tokens and coordinated refreshes. I've tested the full flow against Xero's API.",
-    },
-    {
-      label: "RELIABILITY",
-      title: "Failures should be recoverable",
-      body: "Row-level security separates customer data. Locks prevent token-refresh races, while background jobs keep slow or unreliable integration work out of the request path.",
-    },
-  ] satisfies DetailItem[],
-  techLine:
-    "Next.js · TypeScript · Supabase/Postgres · Xero OAuth 2.0 · Inngest · Vercel",
-} as const;
-
 export type SkillGroup = {
   label: string;
   items: string;
 };
 
 export const skills = {
-  kicker: "05 / SKILLS",
+  kicker: "04 / SKILLS",
   heading: "The tools I use to ship.",
   body: "Swift and iOS are where I have the deepest production experience. I also build with TypeScript, Next.js, Postgres and Python, and use AI tools daily when they help me move faster. The useful part is knowing what to delegate, what to verify and what still needs a human decision.",
   groups: [
@@ -140,13 +114,13 @@ export const skills = {
 } as const;
 
 export const suncorp = {
-  kicker: "03 / ENTERPRISE",
+  kicker: "02 / ENTERPRISE",
   heading: "Suncorp",
-  sub: "SENIOR SOFTWARE ENGINEER · 5 YEARS",
+  sub: "SENIOR SOFTWARE ENGINEER · SINCE 2020",
   items: [
     {
       stat: "TRIAGE",
-      body: "I own release defect triage for Suncorp's mobile app, tracing failures across mobile, web and downstream services. I built an AI-assisted log-analysis agent that turns application logs into a clear diagnosis and helps the right team know where to investigate next.",
+      body: "I ran defect triage across the Duck Creek migration, getting owners assigned and blockers cleared across teams. I also built a HAR analysis tool that cut diagnosis of failing requests from days to a couple of hours.",
     },
     {
       stat: "−25%",
@@ -154,7 +128,7 @@ export const suncorp = {
     },
     {
       stat: "DELIVERY",
-      body: "I led the mobile frontend for the Duck Creek insurance migration, setting the iOS approach and aligning shared patterns with Android.",
+      body: "I led mobile delivery for the Duck Creek insurance migration, setting the iOS approach and guiding my Android counterpart. That work led to my promotion to senior in September 2026.",
     },
     {
       stat: "−50%",
@@ -164,7 +138,7 @@ export const suncorp = {
 } as const;
 
 export const forwardDeployed = {
-  kicker: "04 / HOW I WORK",
+  kicker: "03 / HOW I WORK",
   heading: "Understand the problem, then stay until it works.",
   body: "I like working close to the problem and the people affected by it. I ask questions early, make the trade-offs clear and stay involved through the build, release and whatever turns up in production.",
   details: [
