@@ -5,7 +5,7 @@ import { links, site } from "@/lib/content";
 import { resume } from "@/lib/resume";
 
 const description =
-  "Senior Software Engineer in Sydney with nearly six years at Suncorp, shipping iOS, full-stack and AI-assisted systems for millions of customers.";
+  "Senior Software Engineer in Sydney with six years at Suncorp delivering third-party integrations, platform migrations and production support for millions of customers.";
 
 export const metadata: Metadata = {
   title: "Resume | Rafael Pincus",
@@ -137,20 +137,20 @@ export default function ResumePage() {
         </SectionShell>
 
         <SectionShell
-          kicker="03 / SELECTED PRODUCTS"
-          labelledBy="resume-selected-products"
+          kicker="03 / PROJECTS"
+          labelledBy="resume-projects"
         >
-          <h2 id="resume-selected-products" className="sr-only">
-            Selected products
+          <h2 id="resume-projects" className="sr-only">
+            Projects
           </h2>
           <div className="flex flex-col gap-14">
-            {[resume.pubThursdays].map((project) => (
+            {resume.projects.map((project) => (
               <article key={project.name}>
                 <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
                   <h3 className="text-xl font-medium tracking-[-0.01em] text-ink">
                     {project.name}
                   </h3>
-                  {project.name === resume.pubThursdays.name &&
+                  {project.name === "Pub Thursdays" &&
                   links.appStore ? (
                     <a
                       href={links.appStore}

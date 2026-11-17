@@ -1,3 +1,4 @@
+import { DealZ } from "@/components/sections/dealz";
 import { ForwardDeployed } from "@/components/sections/forward-deployed";
 import { Hero } from "@/components/sections/hero";
 import { PubThursdays } from "@/components/sections/pub-thursdays";
@@ -18,6 +19,7 @@ export default async function Home() {
       <main>
         <Hero />
         <PubThursdays stats={stats} />
+        <DealZ />
         <Suncorp />
         <ForwardDeployed />
         <Skills />
